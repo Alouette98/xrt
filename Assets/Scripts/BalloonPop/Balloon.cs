@@ -149,7 +149,7 @@ namespace Google.CreativeLab.BalloonPop
         private float _nextCooldownDuration = 0;
 
         /// <summary>
-        /// A flag to store if the balloon is currentl inflated or not
+        /// A flag to store if the balloon is currently inflated or not
         /// </summary>
         private bool _isInflated = false;
         public bool IsInflated { get { return _isInflated; } }
