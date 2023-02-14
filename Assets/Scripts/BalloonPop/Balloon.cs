@@ -510,7 +510,7 @@ namespace Google.CreativeLab.BalloonPop
         private void PerformBalloonInflationAnimation() {
 
             float finalHeight = _Data.balloon_string_length;
-            float animDuration = finalHeight * 2f;
+            float animDuration = finalHeight * 0.1f;
             EaseType ease = EaseType.CubicInOut;
             // Ease ease = Ease.InOutCubic;
 
@@ -533,7 +533,7 @@ namespace Google.CreativeLab.BalloonPop
             float scaleAnim = animDuration * 0.3f;
             this.transform.TweenLocalScale(Vector3.one, scaleAnim);
 
-            StartCoroutine(SetCollidersActive(scaleAnim + 0.3f, true));
+            // StartCoroutine(SetCollidersActive(scaleAnim + 0.3f, true));
         }
 
         /// <summary>
