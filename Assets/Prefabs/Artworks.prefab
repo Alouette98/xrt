@@ -371,8 +371,6 @@ MonoBehaviour:
   stringTransform: {fileID: 6243089935217682728}
   inflationTimerRenderer: {fileID: 5716324423425956342}
   RenderersToFade:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 624165877047675662}
   BasePlateMeshRenderer: {fileID: 4903013839912499365}
   BalloonStringMeshRenderer: {fileID: 7848772604893572903}
