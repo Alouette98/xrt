@@ -375,6 +375,7 @@ MonoBehaviour:
   BasePlateMeshRenderer: {fileID: 4903013839912499365}
   BalloonStringMeshRenderer: {fileID: 7848772604893572903}
   debugText: {fileID: 3283131454598074402}
+  basePlate: {fileID: 8277865289503198597}
 --- !u!135 &1454646520330596227
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -397,7 +398,7 @@ SphereCollider:
   m_GameObject: {fileID: 1955459537352544329}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0.2, z: 0}
@@ -418,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5439480062387404120
 Transform:
   m_ObjectHideFlags: 0
@@ -5409,7 +5410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7913432747562435409
 Transform:
   m_ObjectHideFlags: 0
@@ -5666,7 +5667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6932198500800299128
 Transform:
   m_ObjectHideFlags: 0

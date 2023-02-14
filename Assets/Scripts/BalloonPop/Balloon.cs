@@ -172,6 +172,10 @@ namespace Google.CreativeLab.BalloonPop
         public TextMeshProUGUI debugText;
         // ====================================================================
 
+
+        public GameObject basePlate;
+        public sliderMenuAnim m_SliderMenuAnim;
+
         /// <summary>
         /// Unity Awake() method
         /// </summary>
@@ -277,6 +281,37 @@ namespace Google.CreativeLab.BalloonPop
         /// </summary>
         void Update()
         {
+            // == new add ==    Touch detection
+            
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.collider == GetComponent<Collider>())
+                    {
+                        if (basePlate.activeSelf)
+                        {
+                            basePlate.SetActive(false);
+                        }
+                        else
+                        {
+                            basePlate.SetActive(true);
+                        }
+
+                        // Do something when the object is touched
+                        GameManager.instance.m_PanelDown.ShowHideMenu();
+                            
+                    }
+                }
+            }
+            
+            
+            
+            
+            
             // setBalloonFadeOutAlpha(Mathf.Sin(Time.time));
 
             // Create a subtle wind effect on the balloons using PerlinNoise
