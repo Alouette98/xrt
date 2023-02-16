@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class sliderMenuAnim : MonoBehaviour
 {
-    public bool OnAndOffState;
+    // public bool OnAndOffState;
 
     public GameObject panelMenu;
     public Transform main_cam;
@@ -20,6 +20,9 @@ public class sliderMenuAnim : MonoBehaviour
     {
         main_cam.position = Vector3.Lerp(main_cam.position, ideal_Pos, Time.deltaTime*2);
     }
+    
+
+    
     public void ShowHideMenu()
     {
         if(panelMenu != null)
@@ -32,12 +35,25 @@ public class sliderMenuAnim : MonoBehaviour
                 anim.SetBool("show", !isOpen);
                 if (!isOpen)
                 {
-                    OnAndOffState = true;
+                    // ================= The panel is closed. now we make it open. ===========
+                    
+                    // GameManager.instance.m_currentSelectedGO is updated in the Balloon.cs
+                    
+                    gameObject.GetComponent<UIController>().editing_prefab = GameManager.instance.m_currentSelectedGO.transform.Find("ArtWorkBase");
+                    GameManager.instance.LogText(gameObject.GetComponent<UIController>().editing_prefab.name);
+                    
+                    
                     ideal_Pos = init_Pos + new Vector3(0, -1, 0);
                 }   
             else
                 {
-                OnAndOffState = false;
+                // ============== The panel is opend. now we make it close ========
+
+                // GameManager.instance.m_ballonPopController._network.UpdateNewParamOnFirestore()
+                
+                gameObject.GetComponent<UIController>().UploadLatestParamData();
+                GameManager.instance.m_currentSelectedGO = null;
+                gameObject.GetComponent<UIController>().editing_prefab = null;
                 ideal_Pos = init_Pos;
                 }   
             }

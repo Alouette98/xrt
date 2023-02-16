@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2825256898157110165}
   m_Layer: 8
-  m_Name: Balloon_geo
+  m_Name: ArtWorkBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,6 +376,7 @@ MonoBehaviour:
   BalloonStringMeshRenderer: {fileID: 7848772604893572903}
   debugText: {fileID: 3283131454598074402}
   basePlate: {fileID: 8277865289503198597}
+  m_SliderMenuAnim: {fileID: 0}
 --- !u!135 &1454646520330596227
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5829,7 +5830,7 @@ PrefabInstance:
     - target: {fileID: 5386248227897288942, guid: 615c6a91f5bdf5349a18abd22309e702,
         type: 3}
       propertyPath: m_Name
-      value: Bolt
+      value: ArtPiece3D
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 615c6a91f5bdf5349a18abd22309e702, type: 3}

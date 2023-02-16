@@ -83,7 +83,7 @@ namespace Google.CreativeLab.BalloonPop
         /// An object that contains logic to communicate with the server
         /// that manages a database of balloons
         /// </summary>
-        private BalloonsNetworking _network;
+        public BalloonsNetworking _network;
 
         /// <summary>
         /// The model used to visualize anchors.
@@ -357,6 +357,11 @@ namespace Google.CreativeLab.BalloonPop
             StartCoroutine(CreateBalloonAnchorCoroutine(balloonChange.Dict, changeNumber));
         }
 
+        
+        /// === important function ===
+        /// [Imortant Function]
+        ///  Loading function!! load the data from firebase
+        /// 
         /// <summary>
         /// A function to create a BalloonAnchor on a Coroutine.
         /// Used so the game doesn't lag when loading an initial set of 
@@ -549,6 +554,10 @@ namespace Google.CreativeLab.BalloonPop
             this.PlaceAnchorAtCurrentPosition(distAheadOfCamera: 3.0);
         }
 
+        
+        
+        /// [Very Important Function]
+        /// ********************************************************************************************
         /// <summary>
         /// Create a balloon anchor some distance away from the camera's facing angle
         /// </summary>
@@ -577,6 +586,13 @@ namespace Google.CreativeLab.BalloonPop
             newBDat.longitude = geoCoordAhead.longitude;
             newBDat.altitude = geoPose.Altitude - Balloon.ESTIMATED_CAM_HEIGHT_FROM_FLOOR;
             newBDat.balloon_string_length = UnityEngine.Random.Range(0.9f, 1.5f);
+            
+            // === new add ===
+            newBDat.scale = 1;
+            newBDat.rotationX = 0f;
+            newBDat.rotationY = 0f;
+            newBDat.rotationZ = 0f;
+                
 
             Quaternion anchorRot = Quaternion.AngleAxis(0, new Vector3(0.0f, 1.0f, 0.0f));
 
@@ -631,6 +647,15 @@ namespace Google.CreativeLab.BalloonPop
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
             balloon.balloonWasPopped.AddListener(this.BalloonWasPopped);
             balloon.SetBalloonData(balloonData);
+            
+            // modify its scale and rotation
+            // Transform Artworkbase = balloonGO.transform.Find("ArtWorkBase");
+            // GameManager.instance.LogText(Artworkbase.localScale.ToString());
+            // Artworkbase.localRotation =
+            // //     Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
+            // balloonGO.transform.Find("ArtWorkBase").localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
+
+
 
             BalloonAnchor newBA = new BalloonAnchor(arAnchor, balloon);
             balloonGO.SetActive(false);

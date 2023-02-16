@@ -57,6 +57,16 @@ namespace Google.CreativeLab.BalloonPop
         [FirestoreProperty] public string last_user_pop { get; set; }
         [FirestoreProperty] public string color { get; set; } // hex
 
+        // === new add:artwork related stuff===
+        [FirestoreProperty] public float scale { get; set; }
+        [FirestoreProperty] public float rotationX { get; set; }
+        [FirestoreProperty] public float rotationY { get; set; }
+        [FirestoreProperty] public float rotationZ { get; set; }
+        
+        
+        
+        
+
         /// <summary>
         /// The visual changes listener
         /// </summary>

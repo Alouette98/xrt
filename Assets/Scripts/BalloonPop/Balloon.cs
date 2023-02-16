@@ -292,6 +292,9 @@ namespace Google.CreativeLab.BalloonPop
                 {
                     if (hit.collider == GetComponent<Collider>())
                     {
+                        GameManager.instance.m_currentSelectedGO = this.gameObject;
+                        
+
                         if (basePlate.activeSelf)
                         {
                             basePlate.SetActive(false);
@@ -303,6 +306,7 @@ namespace Google.CreativeLab.BalloonPop
 
                         // Do something when the object is touched
                         GameManager.instance.m_PanelDown.ShowHideMenu();
+                        
                             
                     }
                 }
@@ -315,11 +319,11 @@ namespace Google.CreativeLab.BalloonPop
             // setBalloonFadeOutAlpha(Mathf.Sin(Time.time));
 
             // Create a subtle wind effect on the balloons using PerlinNoise
-            float scaleMod = 5f + (25f * Mathf.Clamp(Mathf.PerlinNoise(this.transform.position.z, this.transform.position.x), 0, 1f));
-            float timeModified = Time.time * 0.2f;
-            float rot1 = -0.5f + Mathf.PerlinNoise(this.transform.position.x * 0.1f, timeModified);
-            float rot2 = -0.5f + Mathf.PerlinNoise(this.transform.position.z * 0.1f, timeModified);
-            this.transform.parent.localRotation = Quaternion.Euler(rot1 * scaleMod, 0, rot2 * scaleMod);
+            // float scaleMod = 5f + (25f * Mathf.Clamp(Mathf.PerlinNoise(this.transform.position.z, this.transform.position.x), 0, 1f));
+            // float timeModified = Time.time * 0.2f;
+            // float rot1 = -0.5f + Mathf.PerlinNoise(this.transform.position.x * 0.1f, timeModified);
+            // float rot2 = -0.5f + Mathf.PerlinNoise(this.transform.position.z * 0.1f, timeModified);
+            // this.transform.parent.localRotation = Quaternion.Euler(rot1 * scaleMod, 0, rot2 * scaleMod);
 
             if (!Application.isEditor) {
                 // Make sure the position and scale of the balloon is correct

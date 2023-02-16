@@ -48,7 +48,7 @@ namespace Google.CreativeLab.BalloonPop
         public bool FirebaseReady { get { return _firebaseReady; } }
         public bool BalloonsNearbyMonitoringActive { get { return _balloonsNearbyListener != null; } }
         // public bool BalloonsNearbyMonitoringActive { get { return false; } }
-
+    
         private FirebaseApp _firebaseApp;
         private FirebaseFirestore _firebaseDB;
         private FirebaseAuth _firebaseAuth;
@@ -201,6 +201,13 @@ namespace Google.CreativeLab.BalloonPop
             balloonData.popped_until = 0;
             balloonData.color = "#ffffff";
 
+            
+            // === new add ===
+            balloonData.scale = 1f;
+            balloonData.rotationX = 0f;
+            balloonData.rotationY = 0f;
+            balloonData.rotationZ = 0f;
+            
             balloonsRef.AddAsync(balloonData).ContinueWith(task => {
                 if (task != null && task.Result != null && task.Result.Id != null)
                 {
@@ -209,6 +216,56 @@ namespace Google.CreativeLab.BalloonPop
                 callback(balloonData);
             });
         }
+        
+        
+        // === new add ===
+        // update the scale, rotation to firestore
+        public void UpdateNewParamOnFirestore(
+            BalloonData balloonData,
+            Action<BalloonData> callback)
+            {
+
+            string curUserID = this._currentUserID;
+
+            DocumentReference balloonRef = _firebaseDB.Collection("balloons").Document(balloonData.balloon_id);
+            if (balloonRef == null)
+            {
+                callback(null);
+                Debug.LogError("Balloon ref is null");
+                return;
+            }
+
+            _firebaseDB.RunTransactionAsync(transaction =>
+            {
+                return transaction.GetSnapshotAsync(balloonRef)
+                .ContinueWith((Task<DocumentSnapshot> snapshotTask) =>
+                {
+                    Dictionary<string, object> updates = new Dictionary<string, object>
+                    {
+                        { "scale", balloonData.scale },
+                        { "rotationX", balloonData.rotationX },
+                        { "rotationY", balloonData.rotationY },
+                        { "rotationZ", balloonData.rotationZ },
+                    };
+                    transaction.Update(balloonRef, updates);
+                });
+            }).ContinueWith((Task transactionResultTask) =>
+            {
+
+                if (transactionResultTask.IsCompleted && 
+                    !transactionResultTask.IsCanceled && 
+                    !transactionResultTask.IsFaulted)
+                {
+                    Debug.Log("Successfully update");
+                    GameManager.instance.LogText("!!! SUCCESS !!!");
+                    callback(balloonData);
+                }
+                else
+                {
+                    callback(null);
+                } 
+            });
+        }                      
 
         // ============================================================
         // ------------------------------------------------------------
