@@ -2190,8 +2190,7 @@ MonoBehaviour:
   ARCoreExtensions: {fileID: 649267373}
   SessionCore: {fileID: 980572023}
   CameraUnity: {fileID: 60822116}
-  AnchorVisObjectPrefab: {fileID: 8397102589615373678, guid: 63b8b2ef414c10e448c234506dd002d5,
-    type: 3}
+  AnchorVisObjectPrefab: {fileID: 0}
   BalloonAnchorCountChanged:
     m_PersistentCalls:
       m_Calls:

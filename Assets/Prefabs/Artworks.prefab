@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 2825256898157110165}
   m_Layer: 8
   m_Name: ArtWorkBase
-  m_TagString: Untagged
+  m_TagString: ArtBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

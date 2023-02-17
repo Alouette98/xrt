@@ -18,6 +18,8 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
+using ElRaccoone.Tweens;
+
 namespace Google.CreativeLab.BalloonPop
 {
     using System;
@@ -634,6 +636,22 @@ namespace Google.CreativeLab.BalloonPop
             }
         }
 
+        
+        public static string GetHierarchyString( GameObject gameObject) {
+            var sb = new System.Text.StringBuilder();
+            GetHierarchyStringRecursive(sb, gameObject, 0);
+            return sb.ToString();
+        }
+
+        private static void GetHierarchyStringRecursive(System.Text.StringBuilder sb, GameObject gameObject, int depth) {
+            sb.Append(new string(' ', depth)); // Add indentation based on depth
+            sb.AppendLine(gameObject.name); // Append the name of the current GameObject
+
+            // Recursively iterate through all child GameObjects
+            foreach (Transform child in gameObject.transform) {
+                GetHierarchyStringRecursive(sb, child.gameObject, depth + 1);
+            }
+        }
         /// <summary>
         /// Convenience method to create a balloon object from a prefab, 
         /// set it up and save it to the list of anchors
@@ -647,16 +665,9 @@ namespace Google.CreativeLab.BalloonPop
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
             balloon.balloonWasPopped.AddListener(this.BalloonWasPopped);
             balloon.SetBalloonData(balloonData);
+            // GameManager.instance.LogText(balloonData.scale.ToString() + balloonData.rotationX + balloonData.rotationY + balloonData.rotationZ );
+            // GameManager.instance.LogText(GetHierarchyString(balloonGO));
             
-            // modify its scale and rotation
-            // Transform Artworkbase = balloonGO.transform.Find("ArtWorkBase");
-            // GameManager.instance.LogText(Artworkbase.localScale.ToString());
-            // Artworkbase.localRotation =
-            // //     Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
-            // balloonGO.transform.Find("ArtWorkBase").localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
-
-
-
             BalloonAnchor newBA = new BalloonAnchor(arAnchor, balloon);
             balloonGO.SetActive(false);
             if (!Application.isEditor) {
@@ -665,6 +676,19 @@ namespace Google.CreativeLab.BalloonPop
             balloonGO.transform.localPosition = Vector3.zero;
             balloonGO.transform.localScale = Vector3.one;
             balloonGO.SetActive(true);
+            
+            
+            // modify its scale and rotation
+            GameObject Artworkbase = GameObject.FindGameObjectWithTag("ArtBase");
+            // GameManager.instance.LogText(Artworkbase == null ? "null" : );
+            GameManager.instance.LogText("[scale]" + balloonData.scale + "|" + Artworkbase.transform.localScale);
+            // GameManager.instance.LogText();
+            Transform ArtworkBaseTf = Artworkbase.transform;
+            ArtworkBaseTf.localRotation = Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
+            ArtworkBaseTf.localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
+            
+            
+            
             this._anchors.Add(newBA);
             this.BalloonAnchorCountChanged.Invoke(_anchors.Count);
 
