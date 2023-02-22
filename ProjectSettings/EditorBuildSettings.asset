@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: d3c095d7e7b30644c925998a0b5842a5
+  - enabled: 1
+    path: Assets/Scenes/AssetViewScene.unity
+    guid: e8eacc1bd5677cb45bf04751aa9628aa
+  - enabled: 1
+    path: Assets/Scenes/EditScene.unity
+    guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
     path: Assets/Scenes/BalloonPopAR.unity
     guid: e5ca3b0897605894ba3486a37a32d6cb
   m_configObjects:
