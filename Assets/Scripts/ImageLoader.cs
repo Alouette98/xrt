@@ -7,58 +7,149 @@ using UnityEngine.Networking;
 using Firebase;
 using Firebase.Extensions;
 using Firebase.Storage;
+using SimpleFileBrowser;
 
-public class ImageLoader : MonoBehaviour
+
+namespace TriLibCore.Samples
 {
-    RawImage rawImage;
-    FirebaseStorage storage;
-    StorageReference storageReference;
-
-
-   IEnumerator LoadImage(string MediaUrl)
+    public class ImageLoader : MonoBehaviour
     {
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(MediaUrl);
-        yield return request.SendWebRequest();
-        if(request.isNetworkError || request.isHttpError)
+        RawImage rawImage;
+        GameObject objectAsset;
+        FirebaseStorage storage;
+        StorageReference storageReference;
+
+
+        IEnumerator LoadImage(string MediaUrl)
         {
-            Debug.Log(request.error);
-        }
-        else
-        {
-            rawImage.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-        }
+            UnityWebRequest request = UnityWebRequestTexture.GetTexture(MediaUrl);
 
-    }
-
-    void Start()
-    {
-        rawImage = gameObject.GetComponent<RawImage>();
-        //StartCoroutine(LoadImage("https://firebasestorage.googleapis.com/v0/b/xrt-base.appspot.com/o/old-paper-2133481_1280.jpg?alt=media&token=17704488-eb4a-40df-8214-77e0a0e51eae"));
-
-        //initialize storage reference
-        storage = FirebaseStorage.DefaultInstance;
-        storageReference = storage.GetReferenceFromUrl("gs://xrt-base.appspot.com");
-
-        StorageReference image = storageReference.Child("old-paper-2133481_1280.jpg");
-
-        //get download link of file
-        image.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
-        {
-            if(!task.IsFaulted && !task.IsCanceled)
+            yield return request.SendWebRequest();
+            if (request.isNetworkError || request.isHttpError)
             {
-                StartCoroutine(LoadImage(Convert.ToString(task.Result)));
-;            }
+                Debug.Log(request.error);
+            }
             else
             {
-                Debug.Log(task.Exception);
+                rawImage.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
             }
 
-        });
+        }
 
-    }
+        IEnumerator LoadAsset(string MediaUrl)
+        {
+            UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle(MediaUrl);
 
-    void Update()
-    {
+            yield return request.SendWebRequest();
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.Log(request.error);
+            }
+            else
+            {
+                var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
+                var webRequest = AssetDownloader.CreateWebRequest(MediaUrl);
+                AssetDownloader.LoadModelFromUri(webRequest, OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions);
+                //objectAsset = (DownloadHandlerAssetBundle)request.downloadHandler;
+            }
+
+        }
+
+
+        void Start()
+        {
+            rawImage = gameObject.GetComponent<RawImage>();
+            //StartCoroutine(LoadImage("https://firebasestorage.googleapis.com/v0/b/xrt-base.appspot.com/o/old-paper-2133481_1280.jpg?alt=media&token=17704488-eb4a-40df-8214-77e0a0e51eae"));
+
+            //initialize storage reference
+            storage = FirebaseStorage.DefaultInstance;
+            storageReference = storage.GetReferenceFromUrl("gs://xrt-base.appspot.com");
+
+            StorageReference image = storageReference.Child("old-paper-2133481_1280.jpg");
+
+            //get download link of file
+            image.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
+            {
+                if (!task.IsFaulted && !task.IsCanceled)
+                {
+                    //Debug.Log(Convert.ToString(task.Result));
+                    StartCoroutine(LoadImage(Convert.ToString(task.Result)));
+                    ;
+                }
+                else
+                {
+                    Debug.Log(task.Exception);
+                }
+
+            });
+
+            StorageReference obj = storageReference.Child("uploads/test.fbx");
+
+            const long maxAllowedSize = 16 * 4096 * 4096;
+            obj.GetBytesAsync(maxAllowedSize).ContinueWithOnMainThread(task => {
+                if (task.IsFaulted || task.IsCanceled)
+                {
+                    Debug.LogException(task.Exception);
+                    // Uh-oh, an error occurred!
+                }
+                else
+                {
+                    byte[] fileContents = task.Result;
+                    FileBrowserHelpers.WriteBytesToFile("download_asset.fbx", fileContents);
+                    Debug.Log("Finished downloading!");
+                }
+            });
+
+            var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
+            AssetLoader.LoadModelFromFile("download_asset.fbx", OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions);
+
+        }
+
+        void Update()
+        {
+
+        }
+
+
+
+
+        /*file loader
+          */
+
+        private void OnError(IContextualizedError obj)
+        {
+            Debug.LogError($"An error occurred while loading your Model: {obj.GetInnerException()}");
+        }
+
+        /// <summary>
+        /// Called when the Model loading progress changes.
+        /// </summary>
+        /// <param name="assetLoaderContext">The context used to load the Model.</param>
+        /// <param name="progress">The loading progress.</param>
+        private void OnProgress(AssetLoaderContext assetLoaderContext, float progress)
+        {
+            Debug.Log($"Loading Model. Progress: {progress:P}");
+        }
+
+        /// <summary>
+        /// Called when the Model (including Textures and Materials) has been fully loaded.
+        /// </summary>
+        /// <remarks>The loaded GameObject is available on the assetLoaderContext.RootGameObject field.</remarks>
+        /// <param name="assetLoaderContext">The context used to load the Model.</param>
+        private void OnMaterialsLoad(AssetLoaderContext assetLoaderContext)
+        {
+            Debug.Log("Materials loaded. Model fully loaded.");
+        }
+
+        /// <summary>
+        /// Called when the Model Meshes and hierarchy are loaded.
+        /// </summary>
+        /// <remarks>The loaded GameObject is available on the assetLoaderContext.RootGameObject field.</remarks>
+        /// <param name="assetLoaderContext">The context used to load the Model.</param>
+        private void OnLoad(AssetLoaderContext assetLoaderContext)
+        {
+            Debug.Log("Model loaded. Loading materials.");
+        }
 
     }
 }

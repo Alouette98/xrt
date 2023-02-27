@@ -137,3 +137,19 @@ crashlytics-build.properties
 # Assets/Plugins/Android/com.google.games.*
 # ProjectSettings/AndroidResolverDependencies.xml
 # ProjectSettings/GvhProjectSettings.xml
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.IOSResolver.dll
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.IOSResolver.dll.meta
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.JarResolver.dll
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.JarResolver.dll.meta
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.PackageManagerResolver.dll
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.PackageManagerResolver.dll.meta
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.VersionHandlerImpl.dll
+Assets/ExternalDependencyManager/Editor/1.2.175/Google.VersionHandlerImpl.dll.meta
+Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll
+Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/10.5.0.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/10.5.0.meta
+Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-app-unity/10.5.0.meta
+Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-auth-unity/10.5.0.meta
+Assets/UI/Scenes.meta
+Assets/UI/StreamingAssets.meta

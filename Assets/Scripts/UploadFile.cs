@@ -18,7 +18,7 @@ public class UploadFile : MonoBehaviour
     void Start()
     {
 
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"));
+        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"), new FileBrowser.Filter("Model Files", ".fbx", ".obj"));
 
         FileBrowser.SetDefaultFilter(".jpg");
 
@@ -51,11 +51,13 @@ public class UploadFile : MonoBehaviour
 
             Debug.Log("File Selected");
             byte[] bytes = FileBrowserHelpers.ReadBytesFromFile(FileBrowser.Result[0]);
+            //FileBrowserHelpers.WriteBytesToFile("tttt.jpg", bytes);
 
             string fileName = ProcessFileName(FileBrowser.Result[0]);
             //Editing Metadata
             var newMetadata = new MetadataChange();
-            newMetadata.ContentType = "image/jpeg";
+            //we need a parser to defien "image/jpg"
+            newMetadata.ContentType = "model/fbx";
 
             //Create a reference to where the file needs to be uploaded
             StorageReference uploadRef = storageReference.Child("uploads/" + fileName);
