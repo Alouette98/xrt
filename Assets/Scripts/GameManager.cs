@@ -11,23 +11,25 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public sliderMenuAnim m_PanelDown;
     public GameObject m_currentSelectedGO;
-    public AppState m_AppState;
+    public bool b_isEditing;
     public Text m_debugMessage;
+
+    public GameObject m_placementButton; 
 
     public BalloonPopController m_ballonPopController;
     
 
-    public enum AppState
-    {
-        Standby,
-        Selection,
-    }
+    // public enum AppState
+    // {
+    //     Standby,
+    //     Editing,
+    // }
 
     void Awake()
     {
         instance = this;
         m_currentSelectedGO = null;
-        m_AppState = AppState.Standby;
+        b_isEditing = false;
     }
     
     

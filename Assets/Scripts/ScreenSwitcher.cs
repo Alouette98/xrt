@@ -9,4 +9,12 @@ public class ScreenSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+
+    public void loadSceneByID(int sceneID)
+    {
+       
+       SceneManager.LoadScene(sceneID);
+       
+    }
 }

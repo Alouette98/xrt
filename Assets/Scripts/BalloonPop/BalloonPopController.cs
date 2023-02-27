@@ -590,7 +590,7 @@ namespace Google.CreativeLab.BalloonPop
             newBDat.balloon_string_length = UnityEngine.Random.Range(0.9f, 1.5f);
             
             // === new add ===
-            newBDat.scale = 1;
+            newBDat.scale = 1f;
             newBDat.rotationX = 0f;
             newBDat.rotationY = 0f;
             newBDat.rotationZ = 0f;

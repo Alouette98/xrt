@@ -235,6 +235,12 @@ namespace Google.CreativeLab.BalloonPop
             if (dict.TryGetValue("num_popped", out val)) this.num_popped = Convert.ToInt32(val);
             if (dict.TryGetValue("popped_until", out val)) this.popped_until = Convert.ToInt64(val);
             if (dict.TryGetValue("color", out val)) this.color = (string)val;
+            // === new add:artwork related stuff===
+            if (dict.TryGetValue("scale", out val)) this.scale = (float)Convert.ToDouble(val);
+            if (dict.TryGetValue("rotationX", out val)) this.scale = (float)Convert.ToDouble(rotationX);
+            if (dict.TryGetValue("rotationY", out val)) this.scale = (float)Convert.ToDouble(rotationY);
+            if (dict.TryGetValue("rotationZ", out val)) this.scale = (float)Convert.ToDouble(rotationZ);
+
         }
 
         /// <summary>
