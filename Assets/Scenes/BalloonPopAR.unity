@@ -2956,9 +2956,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _allDebugOff: 0
-  _displayEarthDebug: 1
-  _displayBalloonDebug: 1
+  _allDebugOff: 1
+  _displayEarthDebug: 0
+  _displayBalloonDebug: 0
   _fadeFarBalloons: 1
 --- !u!224 &773242077
 RectTransform:
