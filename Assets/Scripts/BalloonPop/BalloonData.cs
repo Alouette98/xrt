@@ -63,7 +63,10 @@ namespace Google.CreativeLab.BalloonPop
         [FirestoreProperty] public float rotationY { get; set; }
         [FirestoreProperty] public float rotationZ { get; set; }
         
-        
+        [FirestoreProperty] public float slider_size_value { get; set; }
+        [FirestoreProperty] public float slider_X_value { get; set; }
+        [FirestoreProperty] public float slider_Y_value { get; set; }
+        [FirestoreProperty] public float slider_Z_value { get; set; }
         
         
 
@@ -237,9 +240,14 @@ namespace Google.CreativeLab.BalloonPop
             if (dict.TryGetValue("color", out val)) this.color = (string)val;
             // === new add:artwork related stuff===
             if (dict.TryGetValue("scale", out val)) this.scale = (float)Convert.ToDouble(val);
-            if (dict.TryGetValue("rotationX", out val)) this.scale = (float)Convert.ToDouble(rotationX);
-            if (dict.TryGetValue("rotationY", out val)) this.scale = (float)Convert.ToDouble(rotationY);
-            if (dict.TryGetValue("rotationZ", out val)) this.scale = (float)Convert.ToDouble(rotationZ);
+            if (dict.TryGetValue("rotationX", out val)) this.rotationX = (float)Convert.ToDouble(val);
+            if (dict.TryGetValue("rotationY", out val)) this.rotationY = (float)Convert.ToDouble(val);
+            if (dict.TryGetValue("rotationZ", out val)) this.rotationZ = (float)Convert.ToDouble(val);
+            
+            if (dict.TryGetValue("slider_size_value", out val)) this.slider_size_value = (float)Convert.ToDouble(val);
+            if (dict.TryGetValue("slider_X_value", out val)) this.slider_X_value = (float)Convert.ToDouble(val);
+            if (dict.TryGetValue("slider_Y_value", out val)) this.slider_Y_value = (float)Convert.ToDouble(val);
+            if (dict.TryGetValue("slider_Z_value", out val)) this.slider_Z_value = (float)Convert.ToDouble(val);
 
         }
 

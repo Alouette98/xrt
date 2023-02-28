@@ -594,7 +594,13 @@ namespace Google.CreativeLab.BalloonPop
             newBDat.rotationX = 0f;
             newBDat.rotationY = 0f;
             newBDat.rotationZ = 0f;
-                
+
+            newBDat.slider_size_value = 0f;
+            newBDat.slider_X_value = 0f;
+            newBDat.slider_Y_value = 0f;
+            newBDat.slider_Z_value = 0f;
+            
+            
 
             Quaternion anchorRot = Quaternion.AngleAxis(0, new Vector3(0.0f, 1.0f, 0.0f));
 
@@ -658,36 +664,32 @@ namespace Google.CreativeLab.BalloonPop
         /// </summary>
         /// <param name="arAnchor">The GoogleARCore.Anchor that should already be created</param>
         /// <param name="balloonData">The BalloonData to use for the new BalloonAnchor</param>
-        private BalloonAnchor CreateNewBalloonAnchor(ARGeospatialAnchor arAnchor, BalloonData balloonData) {
+        private BalloonAnchor CreateNewBalloonAnchor(ARGeospatialAnchor arAnchor, BalloonData balloonData)
+        {
 
             GameObject balloonGO = Instantiate(AnchorVisObjectPrefab);
-
+            
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
             balloon.balloonWasPopped.AddListener(this.BalloonWasPopped);
             balloon.SetBalloonData(balloonData);
-            // GameManager.instance.LogText(balloonData.scale.ToString() + balloonData.rotationX + balloonData.rotationY + balloonData.rotationZ );
-            // GameManager.instance.LogText(GetHierarchyString(balloonGO));
             
             BalloonAnchor newBA = new BalloonAnchor(arAnchor, balloon);
             balloonGO.SetActive(false);
+            
             if (!Application.isEditor) {
                 balloonGO.transform.SetParent(newBA.anchor.transform, false);
             }
+            
             balloonGO.transform.localPosition = Vector3.zero;
             balloonGO.transform.localScale = Vector3.one;
             balloonGO.SetActive(true);
             
-            
-            // modify its scale and rotation
-            GameObject Artworkbase = GameObject.FindGameObjectWithTag("ArtBase");
-            // GameManager.instance.LogText(Artworkbase == null ? "null" : );
-            GameManager.instance.LogText("[scale]" + balloonData.scale + "|" + Artworkbase.transform.localScale);
-            // GameManager.instance.LogText();
+            GameObject Artworkbase = balloonGO.transform.Find("RotationWrapper/Balloon/ArtWorkBase").gameObject;
             Transform ArtworkBaseTf = Artworkbase.transform;
-            ArtworkBaseTf.localRotation = Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
+
+            ArtworkBaseTf.localRotation =
+                Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
             ArtworkBaseTf.localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
-            
-            
             
             this._anchors.Add(newBA);
             this.BalloonAnchorCountChanged.Invoke(_anchors.Count);

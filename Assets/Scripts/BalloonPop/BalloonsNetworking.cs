@@ -208,6 +208,11 @@ namespace Google.CreativeLab.BalloonPop
             balloonData.rotationY = 0f;
             balloonData.rotationZ = 0f;
             
+            balloonData.slider_size_value = 0f;
+            balloonData.slider_X_value = 0f;
+            balloonData.slider_Y_value = 0f;
+            balloonData.slider_Z_value = 0f;
+            
             balloonsRef.AddAsync(balloonData).ContinueWith(task => {
                 if (task != null && task.Result != null && task.Result.Id != null)
                 {
@@ -246,6 +251,10 @@ namespace Google.CreativeLab.BalloonPop
                         { "rotationX", balloonData.rotationX },
                         { "rotationY", balloonData.rotationY },
                         { "rotationZ", balloonData.rotationZ },
+                        { "slider_size_value", balloonData.slider_size_value },
+                        { "slider_X_value", balloonData.slider_X_value },
+                        { "slider_Y_value", balloonData.slider_Y_value },
+                        { "slider_Z_value", balloonData.slider_Z_value }
                     };
                     transaction.Update(balloonRef, updates);
                 });
@@ -257,7 +266,7 @@ namespace Google.CreativeLab.BalloonPop
                     !transactionResultTask.IsFaulted)
                 {
                     Debug.Log("Successfully update");
-                    GameManager.instance.LogText("!!! SUCCESS !!!");
+                    // GameManager.instance.LogText("!!! SUCCESS !!!");
                     callback(balloonData);
                 }
                 else

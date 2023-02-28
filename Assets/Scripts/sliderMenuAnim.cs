@@ -36,12 +36,14 @@ public class sliderMenuAnim : MonoBehaviour
                 anim.SetBool("show", !isOpen);
                 if (!isOpen)
                 {
+                    GameManager.instance.LogText("```open```");
                     // ================= The panel is closed. now we make it open. ===========
-                    GameManager.instance.b_isEditing = true; 
-                    // GameManager.instance.m_currentSelectedGO is updated in the Balloon.cs
+                    
                     GameManager.instance.m_placementButton.SetActive(false);
-                    gameObject.GetComponent<UIController>().editing_prefab = GameManager.instance.m_currentSelectedGO.transform.Find("ArtWorkBase");
-                    GameManager.instance.LogText(gameObject.GetComponent<UIController>().editing_prefab.name);
+                    gameObject.GetComponent<UIController>().AssignNewTarget(GameManager.instance.m_currentSelectedGO);
+                    GameManager.instance.b_isEditing = true;
+                    
+                    
                     
                     
                     ideal_Pos = init_Pos + new Vector3(0, -1, 0);
@@ -49,12 +51,16 @@ public class sliderMenuAnim : MonoBehaviour
             else
                 {
                 // ============== The panel is opend. now we make it close ========
-                GameManager.instance.b_isEditing = false; 
-                // GameManager.instance.m_ballonPopController._network.UpdateNewParamOnFirestore()
-                GameManager.instance.m_placementButton.SetActive(true);
+                GameManager.instance.LogText("```close```");
+
                 gameObject.GetComponent<UIController>().UploadLatestParamData();
+                gameObject.GetComponent<UIController>().UnAssignCurrTarget();
                 GameManager.instance.m_currentSelectedGO = null;
-                gameObject.GetComponent<UIController>().editing_prefab = null;
+                
+                GameManager.instance.b_isEditing = false;
+                GameManager.instance.m_placementButton.SetActive(true);
+
+                
                 ideal_Pos = init_Pos;
                 }   
             }

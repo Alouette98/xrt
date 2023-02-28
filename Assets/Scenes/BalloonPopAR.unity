@@ -2956,10 +2956,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _allDebugOff: 1
-  _displayEarthDebug: 0
-  _displayBalloonDebug: 0
-  _fadeFarBalloons: 0
+  _allDebugOff: 0
+  _displayEarthDebug: 1
+  _displayBalloonDebug: 1
+  _fadeFarBalloons: 1
 --- !u!224 &773242077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5906,7 +5906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelDown: {fileID: 84554741}
   m_currentSelectedGO: {fileID: 0}
-  m_AppState: 0
+  b_isEditing: 0
   m_debugMessage: {fileID: 1108958582}
   m_placementButton: {fileID: 1004656292}
   m_ballonPopController: {fileID: 485321617}
@@ -6709,7 +6709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -492}
+  m_AnchoredPosition: {x: 508, y: -253}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1702098774
@@ -7763,7 +7763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -102}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1913263617
