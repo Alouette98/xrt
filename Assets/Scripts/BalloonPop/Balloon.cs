@@ -295,14 +295,14 @@ namespace Google.CreativeLab.BalloonPop
                         GameManager.instance.m_currentSelectedGO = this.gameObject;
                         
 
-                        if (basePlate.activeSelf)
-                        {
-                            basePlate.SetActive(false);
-                        }
-                        else
-                        {
-                            basePlate.SetActive(true);
-                        }
+                        // if (basePlate.activeSelf)
+                        // {
+                        //     basePlate.SetActive(false);
+                        // }
+                        // else
+                        // {
+                        //     basePlate.SetActive(true);
+                        // }
 
                         // Do something when the object is touched
                         GameManager.instance.m_PanelDown.ShowHideMenu();
