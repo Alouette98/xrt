@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    // USER ID
+
+    public static string UserID;
+    
     
     // Start is called before the first frame update
     public static GameManager instance;
@@ -17,7 +21,11 @@ public class GameManager : MonoBehaviour
     public GameObject m_placementButton; 
 
     public BalloonPopController m_ballonPopController;
-    
+
+    public string getUserID()
+    {
+        return UserID;
+    }
 
     // public enum AppState
     // {
@@ -30,8 +38,16 @@ public class GameManager : MonoBehaviour
         instance = this;
         m_currentSelectedGO = null;
         b_isEditing = false;
+        
+        UserID = "";
     }
-    
+
+
+    // public void UpdateUserIDOnHomePage()
+    // {
+    //     
+    // }
+    //
     
     
     /// <summary>

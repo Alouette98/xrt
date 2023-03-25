@@ -14,10 +14,15 @@ public class UploadFile : MonoBehaviour
 {
     FirebaseStorage storage;
     StorageReference storageReference;
+
+    private GameManager gm;
+    
     // Start is called before the first frame update
     void Start()
     {
-
+        
+        gm = FindObjectOfType<GameManager>();
+        
         FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"), new FileBrowser.Filter("Model Files", ".fbx", ".obj"));
 
         FileBrowser.SetDefaultFilter(".jpg");
@@ -60,7 +65,7 @@ public class UploadFile : MonoBehaviour
             newMetadata.ContentType = "model/fbx";
 
             //Create a reference to where the file needs to be uploaded
-            StorageReference uploadRef = storageReference.Child("uploads/" + fileName);
+            StorageReference uploadRef = storageReference.Child("uploads/" + gm.getUserID() + "/" + fileName);
             Debug.Log("File upload started");
             uploadRef.PutBytesAsync(bytes, newMetadata).ContinueWithOnMainThread((task) => {
                 if (task.IsFaulted || task.IsCanceled)
