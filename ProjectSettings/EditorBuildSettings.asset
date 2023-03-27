@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BalloonPopAR.unity
     guid: e5ca3b0897605894ba3486a37a32d6cb
+  - enabled: 1
+    path: Assets/Scenes/HomeScene.unity
+    guid: f9663af91a6050042bef2f8eaa962156
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 9589c372becd448928f470b43d0b945b,
       type: 2}

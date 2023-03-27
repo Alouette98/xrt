@@ -3,6 +3,7 @@ using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class AuthManager : MonoBehaviour
 {
@@ -107,10 +108,19 @@ public class AuthManager : MonoBehaviour
             User = LoginTask.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
-            confirmLoginText.text = "Logged In";
+            confirmLoginText.text = "Logged In, user id: " + auth.CurrentUser.UserId ;
+            GameManager.UserID = auth.CurrentUser.UserId;
+            StartCoroutine(JumpToHomePage());
         }
     }
 
+    IEnumerator JumpToHomePage()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(4);
+        // GameManager.UpdateUserIDOnHomePage();
+    }
+    
     private IEnumerator Register(string _email, string _password, string _username)
     {
         if (_username == "")
