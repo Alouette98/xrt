@@ -10,6 +10,8 @@ using SimpleFileBrowser;
 using Firebase;
 using Firebase.Extensions;
 using Firebase.Storage;
+using UnityEngine.SceneManagement;
+
 public class UploadFile : MonoBehaviour
 {
     FirebaseStorage storage;
@@ -75,11 +77,25 @@ public class UploadFile : MonoBehaviour
                 else
                 {
                     Debug.Log("File Uploaded Successfully!");
+                    // Debug.LogWarning(">>>" + uploadRef.GetDownloadUrlAsync().Result);
+                    // Debug.LogWarning(uploadRef.GetDownloadUrlAsync().Result);
+                    // Debug.LogWarning(">>>>>>>>>>>>>>>" + task.Result.Path);
+                    FinishUploading(task.Result.Path);
                 }
             });
+            
+            
+
 
 
         }
+    }
+
+    public void FinishUploading(string path)
+    {
+        Debug.Log("Successfully get file path");
+        GameManager.instance.pathTo2DAsset = path;
+        SceneManager.LoadScene(3);
     }
 
 

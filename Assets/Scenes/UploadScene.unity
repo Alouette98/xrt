@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.33081064, g: 0.37524408, b: 0.4145509, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,13 +252,14 @@ GameObject:
   - component: {fileID: 716985673}
   - component: {fileID: 716985672}
   - component: {fileID: 716985671}
+  - component: {fileID: 716985674}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &716985670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -285,11 +286,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716985669}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cafb97d26c450c84d9748f266dfff2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabGameObject: {fileID: 8397102589615373678, guid: 749b208134baafd498e1b21777f09909,
+    type: 3}
 --- !u!114 &716985672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +327,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716985669}
   m_CullTransparentMesh: 0
+--- !u!114 &716985674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716985669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251fd0b4dc3a60744bad5caf5955a88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &724821896
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -924}
+  m_AnchoredPosition: {x: 0, y: -655}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783376661

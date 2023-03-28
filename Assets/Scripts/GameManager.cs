@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Google.CreativeLab.BalloonPop;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     public BalloonPopController m_ballonPopController;
 
+    public String pathTo2DAsset;
+    
     public string getUserID()
     {
         return UserID;
