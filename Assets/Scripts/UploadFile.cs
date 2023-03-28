@@ -79,7 +79,7 @@ public class UploadFile : MonoBehaviour
                     Debug.Log("File Uploaded Successfully!");
                     // Debug.LogWarning(">>>" + uploadRef.GetDownloadUrlAsync().Result);
                     // Debug.LogWarning(uploadRef.GetDownloadUrlAsync().Result);
-                    // Debug.LogWarning(">>>>>>>>>>>>>>>" + task.Result.Path);
+                    Debug.LogWarning(">>>>>>>>>>>>>>>" + task.Result.Path);
                     FinishUploading(task.Result.Path);
                 }
             });

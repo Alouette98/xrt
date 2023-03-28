@@ -18,7 +18,7 @@ public class ImageLoadingFromFirebase : MonoBehaviour
     public GameObject prefabGameObject;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rawImage = gameObject.GetComponent<RawImage>();
         storage = FirebaseStorage.DefaultInstance;
@@ -70,13 +70,17 @@ public class ImageLoadingFromFirebase : MonoBehaviour
         else
         {
             // rawImage.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            Debug.Log("[v]Texture successfully loaded");
+            // Debug.Log("[v]Texture successfully loaded");
+             
+            Transform childObjectTransform = prefabGameObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase/Cube");
+            childObjectTransform.GetComponent<Renderer>().sharedMaterial.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            // Instantiate(prefabGameObject);
+            GameManager.instance.m_ballonPopController.AnchorVisObjectPrefab = prefabGameObject;
+
         }
         
-        Transform childObjectTransform = prefabGameObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase/Cube");
-        childObjectTransform.GetComponent<Renderer>().material.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+       
 
-        Instantiate(prefabGameObject);
 
         // GameManager.instance.m_ballonPopController.AnchorVisObjectPrefab = 
     }

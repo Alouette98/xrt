@@ -26,6 +26,7 @@ public class EditSceneAwake : MonoBehaviour
         GameManager.instance.m_ballonPopController = m_ballonPopController;
         m_imageLoadingFromFirebase = this.gameObject.GetComponent<ImageLoadingFromFirebase>();
         m_imageLoadingFromFirebase.LoadImageFromName(GameManager.instance.pathTo2DAsset);
+        // m_imageLoadingFromFirebase.LoadImageFromName("old-paper-2133481_1280.jpg");
     }
 
     // Update is called once per frame
