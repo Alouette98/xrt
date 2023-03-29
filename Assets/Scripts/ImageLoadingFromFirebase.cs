@@ -15,7 +15,6 @@ public class ImageLoadingFromFirebase : MonoBehaviour
     public RawImage rawImage;
     FirebaseStorage storage;
     StorageReference storageReference;
-    public GameObject prefabGameObject;
 
     // Start is called before the first frame update
     void Awake()
@@ -29,36 +28,27 @@ public class ImageLoadingFromFirebase : MonoBehaviour
     }
 
 
-    public void LoadImageFromName(string url)
+    public void LoadImageFromName(string url, GameObject inputGameObject)
     {
         Debug.Log("url: " + url);
         StorageReference image = storageReference.Child(url);
-        
-        if (image == null)
-        {
-            Debug.Log("image is NULL");
-        }
-        else
-        {
-            Debug.Log("image is not null");
-        }
         
         image.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
         {
             if (!task.IsFaulted && !task.IsCanceled)
             {
-                StartCoroutine(LoadImage(Convert.ToString(task.Result)));
+                StartCoroutine(LoadImage(Convert.ToString(task.Result), inputGameObject));
+                // return inputGameObject;
             }
             else
             {
                 Debug.Log(task.Exception);
             }
-
         });
-        StartCoroutine(LoadImage(url));
+        
     }
 
-    IEnumerator LoadImage(string MediaUrl)
+    IEnumerator LoadImage(string MediaUrl, GameObject inputGameObject)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(MediaUrl);
 
@@ -69,20 +59,13 @@ public class ImageLoadingFromFirebase : MonoBehaviour
         }
         else
         {
-            // rawImage.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            // Debug.Log("[v]Texture successfully loaded");
-             
-            Transform childObjectTransform = prefabGameObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase/Cube");
+            
+            Transform childObjectTransform = inputGameObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase/Cube");
             childObjectTransform.GetComponent<Renderer>().sharedMaterial.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            // Instantiate(prefabGameObject);
-            GameManager.instance.m_ballonPopController.AnchorVisObjectPrefab = prefabGameObject;
+            Debug.Log("----Successful----");
 
         }
-        
-       
 
-
-        // GameManager.instance.m_ballonPopController.AnchorVisObjectPrefab = 
     }
 
 

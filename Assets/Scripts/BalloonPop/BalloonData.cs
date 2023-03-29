@@ -68,6 +68,8 @@ namespace Google.CreativeLab.BalloonPop
         [FirestoreProperty] public float slider_Y_value { get; set; }
         [FirestoreProperty] public float slider_Z_value { get; set; }
         
+        [FirestoreProperty] public string filepath { get; set; }
+        
         
 
         /// <summary>
@@ -248,6 +250,8 @@ namespace Google.CreativeLab.BalloonPop
             if (dict.TryGetValue("slider_X_value", out val)) this.slider_X_value = (float)Convert.ToDouble(val);
             if (dict.TryGetValue("slider_Y_value", out val)) this.slider_Y_value = (float)Convert.ToDouble(val);
             if (dict.TryGetValue("slider_Z_value", out val)) this.slider_Z_value = (float)Convert.ToDouble(val);
+            
+            if (dict.TryGetValue("filepath", out val)) this.filepath = (string)val;
 
         }
 

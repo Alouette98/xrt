@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public BalloonPopController m_ballonPopController;
 
     public String pathTo2DAsset;
+
+    public ImageLoadingFromFirebase m_imageLoadingFromFirebase;
     
     public string getUserID()
     {

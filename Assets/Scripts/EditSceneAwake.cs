@@ -24,8 +24,9 @@ public class EditSceneAwake : MonoBehaviour
         GameManager.instance.m_debugMessage = m_debugMessage;
         GameManager.instance.m_placementButton = m_placementButton;
         GameManager.instance.m_ballonPopController = m_ballonPopController;
-        m_imageLoadingFromFirebase = this.gameObject.GetComponent<ImageLoadingFromFirebase>();
-        m_imageLoadingFromFirebase.LoadImageFromName(GameManager.instance.pathTo2DAsset);
+        GameManager.instance.m_imageLoadingFromFirebase = this.gameObject.GetComponent<ImageLoadingFromFirebase>();
+        
+        // m_imageLoadingFromFirebase.LoadImageFromName(GameManager.instance.pathTo2DAsset,);
         // m_imageLoadingFromFirebase.LoadImageFromName("old-paper-2133481_1280.jpg");
     }
 

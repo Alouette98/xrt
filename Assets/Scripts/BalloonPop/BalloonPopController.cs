@@ -600,6 +600,14 @@ namespace Google.CreativeLab.BalloonPop
             newBDat.slider_Y_value = 0f;
             newBDat.slider_Z_value = 0f;
             
+            if (GameManager.instance.pathTo2DAsset != null)
+            {
+                newBDat.filepath = GameManager.instance.pathTo2DAsset;
+            }
+            else
+            {
+                newBDat.filepath = null;
+            }
             
 
             Quaternion anchorRot = Quaternion.AngleAxis(0, new Vector3(0.0f, 1.0f, 0.0f));
@@ -690,6 +698,8 @@ namespace Google.CreativeLab.BalloonPop
             ArtworkBaseTf.localRotation =
                 Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
             ArtworkBaseTf.localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
+            
+            GameManager.instance.m_imageLoadingFromFirebase.LoadImageFromName(balloonData.filepath, balloonGO);
             
             this._anchors.Add(newBA);
             this.BalloonAnchorCountChanged.Invoke(_anchors.Count);
