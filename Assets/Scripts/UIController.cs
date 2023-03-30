@@ -30,13 +30,17 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.b_isEditing)
+        if (GameManager.instance != null)
         {
-            float size_value = Mathf.Pow(5, slider_size.value);
-            editing_prefab.localScale = ini_Scale * size_value;
-            Vector3 eulerRotation = new Vector3(slider_X.value, slider_Y.value, slider_Z.value) * 180;
-            editing_prefab.localRotation = ini_rotation * Quaternion.Euler(eulerRotation);
+            if (GameManager.instance.b_isEditing)
+            {
+                float size_value = Mathf.Pow(5, slider_size.value);
+                editing_prefab.localScale = ini_Scale * size_value;
+                Vector3 eulerRotation = new Vector3(slider_X.value, slider_Y.value, slider_Z.value) * 180;
+                editing_prefab.localRotation = ini_rotation * Quaternion.Euler(eulerRotation);
+            }
         }
+        
     }
     public void AssignNewTarget(GameObject inputGameObject)
     {
