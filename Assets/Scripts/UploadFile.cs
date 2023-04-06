@@ -16,6 +16,7 @@ public class UploadFile : MonoBehaviour
 {
     FirebaseStorage storage;
     StorageReference storageReference;
+    public GameObject uploadingcanvas;
 
     private GameManager gm;
     
@@ -69,6 +70,8 @@ public class UploadFile : MonoBehaviour
             //Create a reference to where the file needs to be uploaded
             StorageReference uploadRef = storageReference.Child("uploads/" + gm.getUserID() + "/" + fileName);
             Debug.Log("File upload started");
+            
+            uploadingcanvas.SetActive(true);    
             uploadRef.PutBytesAsync(bytes, newMetadata).ContinueWithOnMainThread((task) => {
                 if (task.IsFaulted || task.IsCanceled)
                 {
@@ -77,6 +80,7 @@ public class UploadFile : MonoBehaviour
                 else
                 {
                     Debug.Log("File Uploaded Successfully!");
+                    uploadingcanvas.SetActive(false);
                     // Debug.LogWarning(">>>" + uploadRef.GetDownloadUrlAsync().Result);
                     // Debug.LogWarning(uploadRef.GetDownloadUrlAsync().Result);
                     Debug.LogWarning(">>>>>>>>>>>>>>>" + task.Result.Path);
@@ -95,7 +99,7 @@ public class UploadFile : MonoBehaviour
     {
         Debug.Log("Successfully get file path");
         GameManager.instance.pathTo2DAsset = path;
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(5);
     }
 
 

@@ -674,7 +674,7 @@ namespace Google.CreativeLab.BalloonPop
         /// <param name="balloonData">The BalloonData to use for the new BalloonAnchor</param>
         private BalloonAnchor CreateNewBalloonAnchor(ARGeospatialAnchor arAnchor, BalloonData balloonData)
         {
-
+            Debug.LogWarning("----------------Reached CreateNewBalloonAnchor-----------------");
             GameObject balloonGO = Instantiate(AnchorVisObjectPrefab);
             
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
@@ -694,7 +694,7 @@ namespace Google.CreativeLab.BalloonPop
             
             GameObject Artworkbase = balloonGO.transform.Find("RotationWrapper/Balloon/ArtWorkBase").gameObject;
             Transform ArtworkBaseTf = Artworkbase.transform;
-
+            
             ArtworkBaseTf.localRotation =
                 Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
             ArtworkBaseTf.localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
@@ -703,11 +703,12 @@ namespace Google.CreativeLab.BalloonPop
             
             this._anchors.Add(newBA);
             this.BalloonAnchorCountChanged.Invoke(_anchors.Count);
-
+            
             balloon.SetVisibleAfterDelay(true, 0.3f);
 
             return newBA;
         }
+        
 
         /// <summary>
         /// Update the height of the balloon anchors so they are 
