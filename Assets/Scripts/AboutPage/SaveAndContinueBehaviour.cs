@@ -1,13 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SignUpButton : MonoBehaviour
+public class SaveAndContinueBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject SignUpCanvas;
-    public GameObject WelcomeCanvas;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +17,8 @@ public class SignUpButton : MonoBehaviour
         
     }
 
-    public void SignUpButtonBehaviour()
+    public void SaveAndContinueButtonBehaviour()
     {
-        WelcomeCanvas.SetActive(false);
-        SignUpCanvas.SetActive(true);
+        SceneManager.LoadScene(3);
     }
-    
 }

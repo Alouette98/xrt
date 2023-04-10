@@ -1,13 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SignUpButton : MonoBehaviour
+public class NoSaveAsDraftForNow : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject SignUpCanvas;
-    public GameObject WelcomeCanvas;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +16,11 @@ public class SignUpButton : MonoBehaviour
     {
         
     }
-
-    public void SignUpButtonBehaviour()
+    
+    public void NoSaveAsDraftForNowBehaviour()
     {
-        WelcomeCanvas.SetActive(false);
-        SignUpCanvas.SetActive(true);
+        // Debug.Log("NoSaveAsDraftForNowBehaviour");
+        SceneManager.LoadScene(4);
     }
     
 }

@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SignUpButton : MonoBehaviour
+public class BackToEditor : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject SignUpCanvas;
-    public GameObject WelcomeCanvas;
-    
+    public GameObject confirmPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +16,9 @@ public class SignUpButton : MonoBehaviour
     {
         
     }
-
-    public void SignUpButtonBehaviour()
-    {
-        WelcomeCanvas.SetActive(false);
-        SignUpCanvas.SetActive(true);
-    }
     
+    public void BackToEditorButton()
+    {
+        confirmPanel.SetActive(false);
+    }
 }

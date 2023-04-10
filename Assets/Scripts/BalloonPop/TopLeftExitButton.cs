@@ -1,13 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SignUpButton : MonoBehaviour
+public class TopLeftExitButton : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject SignUpCanvas;
-    public GameObject WelcomeCanvas;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +16,12 @@ public class SignUpButton : MonoBehaviour
     {
         
     }
-
-    public void SignUpButtonBehaviour()
+    
+    public void TopLeftExitButtonBehaviour()
     {
-        WelcomeCanvas.SetActive(false);
-        SignUpCanvas.SetActive(true);
+        // Application.Quit();
+        SceneManager.LoadScene(4);
     }
+    
     
 }

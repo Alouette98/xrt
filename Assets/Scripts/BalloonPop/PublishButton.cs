@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SignUpButton : MonoBehaviour
+public class PublishButton : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject SignUpCanvas;
-    public GameObject WelcomeCanvas;
-    
     // Start is called before the first frame update
+    public GameObject confirmCanvas;
+    
     void Start()
     {
         
@@ -19,11 +17,11 @@ public class SignUpButton : MonoBehaviour
     {
         
     }
-
-    public void SignUpButtonBehaviour()
+    
+    public void PublishButtonBehaviour()
     {
-        WelcomeCanvas.SetActive(false);
-        SignUpCanvas.SetActive(true);
+        // Debug.LogWarning("Publish button clicked");
+        confirmCanvas.SetActive(true);
     }
     
 }

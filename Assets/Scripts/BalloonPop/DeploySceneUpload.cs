@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SignUpButton : MonoBehaviour
+public class DeploySceneUpload : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject SignUpCanvas;
-    public GameObject WelcomeCanvas;
+    
+    public GameObject SuccessfulUploadCanvas;
+
+    public GameObject ConfirmCanvas;
     
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,9 @@ public class SignUpButton : MonoBehaviour
         
     }
 
-    public void SignUpButtonBehaviour()
+    public void DeployScenePublish()
     {
-        WelcomeCanvas.SetActive(false);
-        SignUpCanvas.SetActive(true);
+        ConfirmCanvas.SetActive(false);
+        SuccessfulUploadCanvas.SetActive(true);
     }
-    
 }
