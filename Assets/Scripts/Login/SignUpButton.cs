@@ -6,6 +6,7 @@ public class SignUpButton : MonoBehaviour
 {
     [SerializeField]
     public GameObject SignUpCanvas;
+    public GameObject WelcomeCanvas;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class SignUpButton : MonoBehaviour
 
     public void SignUpButtonBehaviour()
     {
+        WelcomeCanvas.SetActive(false);
         SignUpCanvas.SetActive(true);
     }
     
