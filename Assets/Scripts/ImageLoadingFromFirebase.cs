@@ -62,6 +62,9 @@ public class ImageLoadingFromFirebase : MonoBehaviour
             
             Transform childObjectTransform = inputGameObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase/Cube");
             childObjectTransform.GetComponent<Renderer>().sharedMaterial.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+
+            //float ratio = ((DownloadHandlerTexture)request.downloadHandler).texture.height / ((DownloadHandlerTexture)request.downloadHandler).texture.width;
+            //inputGameObject.transform.localScale=new Vector3(inputGameObject.transform.localScale.x, inputGameObject.transform.localScale.y* ratio, inputGameObject.transform.localScale.z);
             Debug.Log("----Successful----");
 
         }
