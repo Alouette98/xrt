@@ -10,9 +10,15 @@ using TMPro;
 
 public class DatabaseManager : MonoBehaviour
 {
+<<<<<<< Updated upstream
+=======
+    
+
+>>>>>>> Stashed changes
 
 
     public Text ContentText;
+<<<<<<< Updated upstream
     public GameObject UIPanel;
     public GameObject UIAnchor;
     private string userID;
@@ -45,6 +51,30 @@ public class DatabaseManager : MonoBehaviour
 
 
         string test = "user has works: \n";
+=======
+    public Text BallonsInfos;
+
+    private string userID;
+
+    private DatabaseReference dbReference;
+    private FirebaseFirestore _firebaseDB;
+
+    private void Start()
+    {
+        userID = SystemInfo.deviceUniqueIdentifier;
+       
+        dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+        _firebaseDB = FirebaseFirestore.DefaultInstance;
+
+        
+        
+        Dictionary<string, object> balloonDatas = FetchAllBalloonData("2W5f5A8aCfP04SV5h7qRErW7U1W2");
+
+        Debug.Log(balloonDatas);
+        /*
+        Dictionary<string, Dictionary<string, object>> allballoonComments = FetchAllBalloonComments(balloonDatas); string test = "user has works: \n";
+
+>>>>>>> Stashed changes
         foreach (KeyValuePair<string, Dictionary<string, object>> bd in allballoonComments)
         {
             test += "artwork: " + bd.Key + "\n";
@@ -54,6 +84,7 @@ public class DatabaseManager : MonoBehaviour
             }
         }
         ContentText.text = test;
+<<<<<<< Updated upstream
         Debug.Log(test);
         CreatePanel();
     }
@@ -89,10 +120,18 @@ public class DatabaseManager : MonoBehaviour
     {
        //Debug.Log("     -------"+balloonDatas.Count);
     }
+=======
+
+        */
+    }
+
+
+>>>>>>> Stashed changes
 
 
 
     //given a userID return all its playlist
+<<<<<<< Updated upstream
     public IEnumerator FetchAllBalloonData()
     {
         CollectionReference collectionRef = _firebaseDB.Collection("balloons");
@@ -142,10 +181,35 @@ public class DatabaseManager : MonoBehaviour
                         {
                             allballoonComments[bdID].Add(user.Key.ToString(), userBallonComment.Child("content").Value);
                             Debug.Log("read :____" + userBallonComment.Child("content").Value);
+=======
+    public Dictionary<string, object> FetchAllBalloonData(string userID)
+    {
+        CollectionReference collectionRef = _firebaseDB.Collection("balloons");
+        Dictionary<string, object> userBalloonDatas = new Dictionary<string, object>();
+        collectionRef.GetSnapshotAsync().ContinueWith(task => {
+            if (task.IsFaulted)
+            {
+                // Handle the error
+            }
+            else
+            {
+                QuerySnapshot snapshot = task.Result;
+                foreach (DocumentSnapshot document in snapshot.Documents)
+                {
+                    if (document.Exists)
+                    {
+                        Dictionary<string, object> data = document.ToDictionary();
+                        // Access the data as needed
+                        //Debug.Log(data["user_id"]);
+                        if (data["user_id"].ToString() == userID)
+                        {
+                            userBalloonDatas[data["balloon_id"].ToString()] = data;
+>>>>>>> Stashed changes
                         }
                     }
                 }
             }
+<<<<<<< Updated upstream
            
         }
         else
@@ -154,11 +218,39 @@ public class DatabaseManager : MonoBehaviour
         
     }
 
+=======
+
+
+
+
+        });
+        return userBalloonDatas;
+
+    }
+
+
+    public Dictionary<string, Dictionary<string, object>> FetchAllBalloonComments(Dictionary<string, object> balloonDatas)
+    {
+        Dictionary<string, Dictionary<string, object>> allBalloonsComments = new Dictionary<string, Dictionary<string, object>>();
+        foreach (var bd in balloonDatas)
+        {
+            string bdID = bd.Key;
+            Dictionary<string, object> bdc = GetAllBallonInfo(bdID);
+            allBalloonsComments.Add(bd.Key, bdc);
+        }
+        return allBalloonsComments;
+    }
+
+
+>>>>>>> Stashed changes
     public Dictionary<string, object> GetAllBallonInfo(string balloonID)
     {
         Dictionary<string, object> curBDComment = new Dictionary<string, object>();
         StartCoroutine(GetAllBalloonContent((Dictionary<string, object> pullComment) => { curBDComment = pullComment; }, balloonID));
+<<<<<<< Updated upstream
         Debug.Log(balloonID + " has : "+ curBDComment.Count);
+=======
+>>>>>>> Stashed changes
         return curBDComment;
     }
 
@@ -178,7 +270,10 @@ public class DatabaseManager : MonoBehaviour
                     if (userBallonComment.Key.ToString() == balloonID)
                     {
                         curBDComment.Add(user.Key.ToString(), userBallonComment.Child("content").Value);
+<<<<<<< Updated upstream
                         Debug.Log("read :____" + userBallonComment.Child("content").Value);
+=======
+>>>>>>> Stashed changes
                     }
                 }
             }
@@ -200,7 +295,10 @@ public class DatabaseManager : MonoBehaviour
             userID = UserID.text;
         }
         dbReference.Child("user").Child(userID).Child(newComment.balloonID).SetRawJsonValueAsync(json);
+<<<<<<< Updated upstream
     }
+=======
+>>>>>>> Stashed changes
     }*/
 
 
@@ -209,7 +307,6 @@ public class DatabaseManager : MonoBehaviour
     {
         var userNameData = dbReference.Child("user").Child(userID).Child(BalloonName.text).Child("balloonID").GetValueAsync();
         yield return new WaitUntil(predicate: () => userNameData.IsCompleted);
-
         if(userNameData != null)
         {
             DataSnapshot snapshot = userNameData.Result;
@@ -217,8 +314,11 @@ public class DatabaseManager : MonoBehaviour
         {
             onCallback.Invoke("no user founded");
         }
+<<<<<<< Updated upstream
     }
 
+=======
+>>>>>>> Stashed changes
     }*/
     /*
     public IEnumerator GetContent(Action<string> onCallback)
@@ -228,6 +328,7 @@ public class DatabaseManager : MonoBehaviour
         {
             onCallback.Invoke("no comment founded");
         }
+<<<<<<< Updated upstream
     }
     }*/
 
@@ -258,9 +359,10 @@ public class DatabaseManager : MonoBehaviour
         {
             onCallback.Invoke("no comment founded");
         }
+=======
+    }*/
+>>>>>>> Stashed changes
 
-
-    }
 
 
     /*
@@ -271,8 +373,11 @@ public class DatabaseManager : MonoBehaviour
         }
 
 
+<<<<<<< Updated upstream
     }
 
+=======
+>>>>>>> Stashed changes
     }*/
 
     /*
@@ -283,21 +388,25 @@ public class DatabaseManager : MonoBehaviour
         }));
     }
 
+<<<<<<< Updated upstream
     public void GetAllBallonInfo()
     {
+=======
+>>>>>>> Stashed changes
    
 
 
-        StartCoroutine(GetAllBalloonContent((string allContent) => {
-            ContentText.text = "this balloon's all Comment: \n" + allContent;
-        }));
-    }
     public void GetUserAllInfo()
     {
 
         StartCoroutine(GetUserAllContent((string allContent) => {
             ContentText.text = "this user's all Comment: \n" + allContent;
         }));
+<<<<<<< Updated upstream
     }
     }*/
 }
+=======
+    }*/
+}
+>>>>>>> Stashed changes
