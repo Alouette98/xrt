@@ -106,7 +106,6 @@
                     -keep class com.google.android.gms.tasks.** { *; }
 
 ### Module Progurad Rules ends ###
-<<<<<<< Updated upstream
 
 ### Module Progurad Rules starts ###
 
@@ -119,5 +118,3 @@
                     -keep class com.google.android.gms.tasks.** { *; }
 
 ### Module Progurad Rules ends ###
-=======
->>>>>>> Stashed changes
