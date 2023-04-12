@@ -19,6 +19,9 @@ public class ViewerEnd : MonoBehaviour
 
     public void viewerEndBehaviour()
     {
+        // Destroy(GameManager.instance);
         SceneManager.LoadScene(6);
     }
+    
+    
 }
