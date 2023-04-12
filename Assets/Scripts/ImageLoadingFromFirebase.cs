@@ -61,11 +61,9 @@ public class ImageLoadingFromFirebase : MonoBehaviour
         {
             
             Transform childObjectTransform = inputGameObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase/Cube");
+            //childObjectTransform.GetComponent<Renderer>().material = new Material(Shader.Find("Specular"));
             childObjectTransform.GetComponent<Renderer>().sharedMaterial.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            
-            float ratio = ((DownloadHandlerTexture)request.downloadHandler).texture.height / ((DownloadHandlerTexture)request.downloadHandler).texture.width;
-            inputGameObject.transform.localScale=new Vector3(inputGameObject.transform.localScale.x, inputGameObject.transform.localScale.y* ratio, inputGameObject.transform.localScale.z);
-            
+            childObjectTransform.GetComponent<Renderer>().sharedMaterial.color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
             Debug.Log("----Successful----");
 
         }

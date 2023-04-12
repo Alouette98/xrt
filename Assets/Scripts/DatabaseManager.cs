@@ -12,6 +12,7 @@ public class DatabaseManager : MonoBehaviour
 {
 
 
+
     public Text ContentText;
     public GameObject UIPanel;
     public GameObject UIAnchor;
@@ -22,7 +23,10 @@ public class DatabaseManager : MonoBehaviour
     private FirebaseFirestore _firebaseDB;
 
     Dictionary<string, object> balloonDatas = new Dictionary<string, object>();
-    Dictionary<string, Dictionary<string, object>> allballoonComments = new Dictionary<string, Dictionary<string, object>>();
+
+    Dictionary<string, Dictionary<string, object>> allballoonComments =
+        new Dictionary<string, Dictionary<string, object>>();
+
     private IEnumerator Start()
     {
         //userID = SystemInfo.deviceUniqueIdentifier;
@@ -31,7 +35,7 @@ public class DatabaseManager : MonoBehaviour
         dbReference = FirebaseDatabase.DefaultInstance.RootReference;
         _firebaseDB = FirebaseFirestore.DefaultInstance;
 
-
+    
         userID = "wqSd10BqshaCYYj5VrQXpY6Ac8F2";
         StartCoroutine(FetchAllBalloonData());
         Debug.Log("fetching user balloon data");
@@ -53,6 +57,7 @@ public class DatabaseManager : MonoBehaviour
                 test += "\t comments are: " + bdc.Value + "\n";
             }
         }
+
         ContentText.text = test;
         Debug.Log(test);
         CreatePanel();
@@ -77,8 +82,9 @@ public class DatabaseManager : MonoBehaviour
             string comments = "comments are \n";
             foreach (KeyValuePair<string, object> bdc in bd.Value)
             {
-                comments += bdc.Key +"\t comments are: " + bdc.Value + "\n";
+                comments += bdc.Key + "\t comments are: " + bdc.Value + "\n";
             }
+
             comment.GetComponent<TextMeshProUGUI>().text = comments;
 
         }
@@ -87,7 +93,7 @@ public class DatabaseManager : MonoBehaviour
 
     private void Update()
     {
-       //Debug.Log("     -------"+balloonDatas.Count);
+        //Debug.Log("     -------"+balloonDatas.Count);
     }
 
 
@@ -101,7 +107,7 @@ public class DatabaseManager : MonoBehaviour
 
         if (task.IsFaulted)
         {
-                // Handle the error
+            // Handle the error
         }
         else
         {
@@ -110,11 +116,11 @@ public class DatabaseManager : MonoBehaviour
             {
                 if (document.Exists)
                 {
-                   Dictionary<string, object> data = document.ToDictionary();
-                   if (data["user_id"].ToString() == userID)
-                   {
+                    Dictionary<string, object> data = document.ToDictionary();
+                    if (data["user_id"].ToString() == userID)
+                    {
                         balloonDatas[data["balloon_id"].ToString()] = data;
-                   }
+                    }
                 }
             }
 
@@ -146,19 +152,20 @@ public class DatabaseManager : MonoBehaviour
                     }
                 }
             }
-           
+
         }
         else
         {
         }
-        
+
     }
 
     public Dictionary<string, object> GetAllBallonInfo(string balloonID)
     {
         Dictionary<string, object> curBDComment = new Dictionary<string, object>();
-        StartCoroutine(GetAllBalloonContent((Dictionary<string, object> pullComment) => { curBDComment = pullComment; }, balloonID));
-        Debug.Log(balloonID + " has : "+ curBDComment.Count);
+        StartCoroutine(GetAllBalloonContent((Dictionary<string, object> pullComment) => { curBDComment = pullComment; },
+            balloonID));
+        Debug.Log(balloonID + " has : " + curBDComment.Count);
         return curBDComment;
     }
 
@@ -182,6 +189,7 @@ public class DatabaseManager : MonoBehaviour
                     }
                 }
             }
+
             onCallback.Invoke(curBDComment);
         }
         else
@@ -209,7 +217,6 @@ public class DatabaseManager : MonoBehaviour
     {
         var userNameData = dbReference.Child("user").Child(userID).Child(BalloonName.text).Child("balloonID").GetValueAsync();
         yield return new WaitUntil(predicate: () => userNameData.IsCompleted);
-
         if(userNameData != null)
         {
             DataSnapshot snapshot = userNameData.Result;
@@ -260,44 +267,40 @@ public class DatabaseManager : MonoBehaviour
         }
 
 
-    }
 
-
-    /*
-    public IEnumerator GetUserAllContent(Action<string> onCallback)
-    {
-        var userContentData = dbReference.Child("user").GetValueAsync();
-@ -134,9 +218,9 @@ public class DatabaseManager : MonoBehaviour
+        /*
+        public IEnumerator GetUserAllContent(Action<string> onCallback)
+        {
+            var userContentData = dbReference.Child("user").GetValueAsync();
+    @ -134,9 +218,9 @@ public class DatabaseManager : MonoBehaviour
+            }
+    
+    
         }
+    
+        }*/
 
-
+        /*
+        public void GetUserBalloonInfo()
+        {
+            StartCoroutine(GetName((string balloonID) => {
+    @ -148,18 +232,14 @@ public class DatabaseManager : MonoBehaviour
+            }));
+        }
+    
+        public void GetAllBallonInfo()
+        {
+       
+    
+    
+        public void GetUserAllInfo()
+        {
+    
+            StartCoroutine(GetUserAllContent((string allContent) => {
+                ContentText.text = "this user's all Comment: \n" + allContent;
+            }));
+        }
+        }*/
     }
-
-    }*/
-
-    /*
-    public void GetUserBalloonInfo()
-    {
-        StartCoroutine(GetName((string balloonID) => {
-@ -148,18 +232,14 @@ public class DatabaseManager : MonoBehaviour
-        }));
-    }
-
-    public void GetAllBallonInfo()
-    {
-   
-
-
-        StartCoroutine(GetAllBalloonContent((string allContent) => {
-            ContentText.text = "this balloon's all Comment: \n" + allContent;
-        }));
-    }
-    public void GetUserAllInfo()
-    {
-
-        StartCoroutine(GetUserAllContent((string allContent) => {
-            ContentText.text = "this user's all Comment: \n" + allContent;
-        }));
-    }
-    }*/
 }
+
