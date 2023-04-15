@@ -2769,7 +2769,25 @@ MonoBehaviour:
   ARCoreExtensions: {fileID: 649267373}
   SessionCore: {fileID: 980572023}
   CameraUnity: {fileID: 60822116}
-  AnchorVisObjectPrefab: {fileID: 8397102589615373678, guid: cf2c9fa459c652b4ba8241abfb62b661,
+  AnchorVisObjectPrefab: {fileID: 8397102589615373678, guid: 749b208134baafd498e1b21777f09909,
+    type: 3}
+  artworks:
+  - name: ggmt.jpg
+    artwork: {fileID: 8143300727929319914, guid: 8190577279139f841b8275bf163bfa60,
+      type: 3}
+  - name: AmberG.png
+    artwork: {fileID: 1672459788036434333, guid: 05c884d3c85e98c48bda1a7adc3a26f2,
+      type: 3}
+  - name: arty.cuno.png
+    artwork: {fileID: 8259217414876893908, guid: eef43189f2cfec140b16795f046cfac4,
+      type: 3}
+  - name: Eiko.jpg
+    artwork: {fileID: 2127908395998329173, guid: e1e2c0ba4fd719a40b47d4b3727c87c3,
+      type: 3}
+  - name: NatalieChristel
+    artwork: {fileID: 3409240096807773335, guid: b63fd2cc1d2f5d145b36197f13512af8,
+      type: 3}
+  testArtwork: {fileID: 7433814448458385536, guid: e84b45dd49111134d86ca04ad6324d28,
     type: 3}
   BalloonAnchorCountChanged:
     m_PersistentCalls:
@@ -10433,6 +10451,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915876311}
   m_CullTransparentMesh: 0
+--- !u!1 &1920930903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1920930905}
+  - component: {fileID: 1920930904}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1920930904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920930903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959621ef1e4c3964f887414bff6dbe95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pictures:
+  - name: 
+    artwork: {fileID: 0}
+  - name: 
+    artwork: {fileID: 0}
+  - name: 
+    artwork: {fileID: 0}
+--- !u!4 &1920930905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920930903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.4237149, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1934083156
 GameObject:
   m_ObjectHideFlags: 0

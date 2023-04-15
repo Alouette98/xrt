@@ -26,7 +26,7 @@ public class UploadFile : MonoBehaviour
         
         gm = FindObjectOfType<GameManager>();
         
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"), new FileBrowser.Filter("Model Files", ".fbx", ".obj"));
+        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"), new FileBrowser.Filter("Model Files", ".fbx", ".obj", ".glb"));
 
         FileBrowser.SetDefaultFilter(".jpg");
 
@@ -61,7 +61,9 @@ public class UploadFile : MonoBehaviour
             byte[] bytes = FileBrowserHelpers.ReadBytesFromFile(FileBrowser.Result[0]);
             //FileBrowserHelpers.WriteBytesToFile("tttt.jpg", bytes);
 
-            string fileName = ProcessFileName(FileBrowser.Result[0]);
+            string fileName = ProcessFileName( Path.GetFileName(FileBrowser.Result[0]));
+            Debug.Log("this is "+ fileName);
+            /*
             //Editing Metadata
             var newMetadata = new MetadataChange();
             //we need a parser to defien "image/jpg"
@@ -87,11 +89,8 @@ public class UploadFile : MonoBehaviour
                     FinishUploading(task.Result.Path);
                 }
             });
-            
-            
-
-
-
+            */
+            FinishUploading(fileName);
         }
     }
 
@@ -105,7 +104,8 @@ public class UploadFile : MonoBehaviour
 
     private string  ProcessFileName(string path)
     {
-        string[] strElements = path.Split('\\');
+        string[] strElements = path.Split(new string[] {"%2F"}, System.StringSplitOptions.None);
+        //strElements[strElements.Length - 1].Split()
         return strElements[strElements.Length - 1];
     }
 }

@@ -92,6 +92,16 @@ namespace Google.CreativeLab.BalloonPop
         /// </summary>
         public GameObject AnchorVisObjectPrefab;
 
+
+        [Serializable]
+        public struct NamedArtwork
+        {
+            public string name;
+            public GameObject artwork;
+        }
+        public NamedArtwork[] artworks;
+
+        public GameObject testArtwork;
         /// <summary>
         /// The last created anchors.
         /// </summary>
@@ -583,7 +593,8 @@ namespace Google.CreativeLab.BalloonPop
             distAheadOfCamera = geoCoord.GetDistanceTo(geoCoordAhead);
 
             BalloonData newBDat = new BalloonData();
-            newBDat.user_id = _network.CurrentUserID;
+            //newBDat.user_id = _network.CurrentUserID;
+            newBDat.user_id = GameManager.instance.getUserID();
             newBDat.latitude = geoCoordAhead.latitude;
             newBDat.longitude = geoCoordAhead.longitude;
             newBDat.altitude = geoPose.Altitude - Balloon.ESTIMATED_CAM_HEIGHT_FROM_FLOOR;
@@ -675,9 +686,24 @@ namespace Google.CreativeLab.BalloonPop
         private BalloonAnchor CreateNewBalloonAnchor(ARGeospatialAnchor arAnchor, BalloonData balloonData)
         {
             Debug.LogWarning("----------------Reached CreateNewBalloonAnchor-----------------");
-            GameObject balloonGO = Instantiate(AnchorVisObjectPrefab);
+            GameObject balloonGO;
+            bool finded = false;
+            balloonGO = Instantiate(AnchorVisObjectPrefab);
+            foreach (NamedArtwork atw in artworks)
+            {
+                if (atw.name == balloonData.filepath)
+                {
+                    Destroy(balloonGO);
+                    balloonGO = Instantiate(atw.artwork);
+                    finded = true;
+                    break;
+                }
+            }
+           
+            
             
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
+
             balloon.balloonWasPopped.AddListener(this.BalloonWasPopped);
             balloon.SetBalloonData(balloonData);
             
@@ -699,7 +725,7 @@ namespace Google.CreativeLab.BalloonPop
                 Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
             ArtworkBaseTf.localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
             
-            GameManager.instance.m_imageLoadingFromFirebase.LoadImageFromName(balloonData.filepath, balloonGO);
+            //GameManager.instance.m_imageLoadingFromFirebase.LoadImageFromName(balloonData.filepath, balloonGO);
             
             this._anchors.Add(newBA);
             this.BalloonAnchorCountChanged.Invoke(_anchors.Count);
