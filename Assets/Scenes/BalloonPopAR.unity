@@ -158,8 +158,8 @@ RectTransform:
   m_Father: {fileID: 411430475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.04187192}
+  m_AnchorMax: {x: 1, y: 0.9458128}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -507,6 +507,7 @@ MonoBehaviour:
   main_cam: {fileID: 60822111}
   init_Pos: {x: 0, y: 0, z: 0}
   ideal_Pos: {x: 0, y: 0, z: 0}
+  overlayerbtn: {fileID: 0}
 --- !u!114 &84554742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5183,6 +5184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_placeholder: {fileID: 152761892}
+  modifyCanvas: {fileID: 0}
 --- !u!1 &1007342902
 GameObject:
   m_ObjectHideFlags: 0
@@ -5873,6 +5875,7 @@ MonoBehaviour:
   main_cam: {fileID: 0}
   init_Pos: {x: 0, y: 0, z: 0}
   ideal_Pos: {x: 0, y: 0, z: 0}
+  overlayerbtn: {fileID: 0}
 --- !u!95 &1136327309
 Animator:
   serializedVersion: 3
@@ -6601,6 +6604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5378bfbfff15632469fbcfedba773f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backCanvas: {fileID: 0}
 --- !u!1 &1387526801
 GameObject:
   m_ObjectHideFlags: 0
@@ -7424,6 +7428,7 @@ MonoBehaviour:
   m_ballonPopController: {fileID: 485321617}
   pathTo2DAsset: 
   m_imageLoadingFromFirebase: {fileID: 0}
+  sceneName: 
 --- !u!4 &1456396480
 Transform:
   m_ObjectHideFlags: 0
