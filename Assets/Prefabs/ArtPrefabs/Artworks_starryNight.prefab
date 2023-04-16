@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fa68127295e4ea5ba9e342bc3d6083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cusumizedCollider: {fileID: 0}
   balloonRoot: {fileID: 4966248812752501198}
   cloudParticles: {fileID: 8715415769198874350}
   balloonTransform: {fileID: 2644223744451952917}
@@ -424,8 +425,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.23
-  m_Center: {x: 0, y: 0.34, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.11, z: 0}
 --- !u!135 &1907667623896507483
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5695,7 +5696,7 @@ Transform:
   m_GameObject: {fileID: 7001637892416518054}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.19, y: 0.87, z: 0.1}
   m_Children: []
   m_Father: {fileID: 2644223744451952917}
   m_RootOrder: 0
@@ -5756,7 +5757,7 @@ BoxCollider:
   m_GameObject: {fileID: 7001637892416518054}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
