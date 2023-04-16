@@ -26,7 +26,10 @@ public class UploadFile : MonoBehaviour
         
         gm = FindObjectOfType<GameManager>();
         
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png"), new FileBrowser.Filter("Text Files", ".txt", ".pdf"), new FileBrowser.Filter("Model Files", ".fbx", ".obj", ".glb"));
+        FileBrowser.SetFilters(true, 
+            new FileBrowser.Filter("Images", ".jpg", ".png"), 
+            new FileBrowser.Filter("Text Files", ".txt", ".pdf"), 
+            new FileBrowser.Filter("Model Files", ".fbx", ".obj", ".glb"));
 
         FileBrowser.SetDefaultFilter(".jpg");
 
@@ -40,8 +43,28 @@ public class UploadFile : MonoBehaviour
 
     public void OnButtonClick()
     {
-        StartCoroutine(ShowLoadDialogCoroutine());
+        //StartCoroutine(ShowLoadDialogCoroutine()); //simpleFileBrower way
+        PickFileName();
 
+    }
+
+
+    void PickFileName()
+    {
+        string FileType = "*/*";
+        NativeFilePicker.Permission permission = NativeFilePicker.PickFile((path) =>
+        {
+            if(path == null)
+            {
+                Debug.Log("Operation cancelled");
+            }
+            else
+            {
+                string fileName = ProcessFileName(Path.GetFileName(path));
+                Debug.Log("read file " + fileName);
+                FinishUploading(fileName);
+            }
+        }, new string[] { FileType });
     }
 
     IEnumerator ShowLoadDialogCoroutine()
@@ -63,6 +86,11 @@ public class UploadFile : MonoBehaviour
 
             string fileName = ProcessFileName( Path.GetFileName(FileBrowser.Result[0]));
             Debug.Log("this is "+ fileName);
+
+
+
+
+
             /*
             //Editing Metadata
             var newMetadata = new MetadataChange();

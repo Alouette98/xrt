@@ -688,20 +688,20 @@ namespace Google.CreativeLab.BalloonPop
             Debug.LogWarning("----------------Reached CreateNewBalloonAnchor-----------------");
             GameObject balloonGO;
             bool finded = false;
-            balloonGO = Instantiate(AnchorVisObjectPrefab);
+            GameObject toBe = AnchorVisObjectPrefab;
             foreach (NamedArtwork atw in artworks)
             {
                 if (atw.name == balloonData.filepath)
                 {
-                    Destroy(balloonGO);
-                    balloonGO = Instantiate(atw.artwork);
+                    toBe = atw.artwork;
                     finded = true;
                     break;
                 }
             }
-           
-            
-            
+            balloonGO = Instantiate(toBe);
+
+
+
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
 
             balloon.balloonWasPopped.AddListener(this.BalloonWasPopped);
