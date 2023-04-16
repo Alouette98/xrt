@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     public String pathTo2DAsset;
 
     public ImageLoadingFromFirebase m_imageLoadingFromFirebase;
+
+    public string sceneName;
     
     public string getUserID()
     {

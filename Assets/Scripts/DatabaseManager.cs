@@ -36,7 +36,11 @@ public class DatabaseManager : MonoBehaviour
         _firebaseDB = FirebaseFirestore.DefaultInstance;
 
     
-        userID = "wqSd10BqshaCYYj5VrQXpY6Ac8F2";
+        userID = GameManager.instance.getUserID();
+        // userID = "uIUAqttvYYSHfbRN4eY8Q29wNnN2";
+        
+        
+        
         StartCoroutine(FetchAllBalloonData());
         Debug.Log("fetching user balloon data");
         yield return new WaitForSeconds(1f);
@@ -117,9 +121,12 @@ public class DatabaseManager : MonoBehaviour
                 if (document.Exists)
                 {
                     Dictionary<string, object> data = document.ToDictionary();
+                    Debug.Log(data["user_id"]+ "---" + data["filepath"]);
                     if (data["user_id"].ToString() == userID)
                     {
                         balloonDatas[data["balloon_id"].ToString()] = data;
+                        Debug.Log("read :____" + data["filepath"]);
+                        
                     }
                 }
             }

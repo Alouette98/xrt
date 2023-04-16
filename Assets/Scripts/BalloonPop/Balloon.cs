@@ -305,9 +305,16 @@ namespace Google.CreativeLab.BalloonPop
                         // }
 
                         // Do something when the object is touched
-                        GameManager.instance.m_PanelDown.ShowHideMenu();
-                        
-                            
+                        if (GameManager.instance.sceneName == "edit")
+                        {
+                            GameManager.instance.m_PanelDown.ShowHideMenu();
+                        }
+                        else if (GameManager.instance.sceneName == "view")
+                        {
+                            GameManager.instance.m_PanelDown.ShowHideMenu();
+                        }
+
+
                     }
                 }
             }

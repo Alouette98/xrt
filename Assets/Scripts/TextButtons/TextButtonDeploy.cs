@@ -31,39 +31,50 @@ public class TextButtonDeploy : MonoBehaviour
         // height_text.color = new Color(168f / 255f, 148f / 255f, 252f / 255f);
         // size_text.color = new Color(1f, 1f, 1f);
         // rotation_text.color = new Color(1f, 1f, 1f);
-
-        // height_obj.GetComponent<sliderMenuAnim>().SetShow();
-        // size_obj.GetComponent<sliderMenuAnim>().SetShow();
-        // rotation_obj.GetComponent<sliderMenuAnim>().SetShow();
-
+        
         height_obj.SetActive(true);
+
+        
+        height_obj.GetComponent<sliderMenuAnim>().SetShow();
+        size_obj.GetComponent<sliderMenuAnim>().SetShow();
+        rotation_obj.GetComponent<sliderMenuAnim>().SetShow();
+
         size_obj.SetActive(false);
         rotation_obj.SetActive(false);
         
-        height_obj.GetComponent<sliderMenuAnim>().SetShow();
+        // height_obj.SetActive(true);
+        // size_obj.SetActive(false);
+        // rotation_obj.SetActive(false);
+        
+        // height_obj.GetComponent<sliderMenuAnim>().SetShow();
         
         // GameManager.instance.m_PanelDown.ShowHideMenu();
     }
     
     public void enableSize()
     {
-        // height_obj.GetComponent<sliderMenuAnim>().SetShow();
-        // size_obj.GetComponent<sliderMenuAnim>().SetShow();
-        // rotation_obj.GetComponent<sliderMenuAnim>().SetShow();
+        size_obj.SetActive(true);
+        
+        height_obj.GetComponent<sliderMenuAnim>().SetShow();
+        size_obj.GetComponent<sliderMenuAnim>().SetShow();
+        rotation_obj.GetComponent<sliderMenuAnim>().SetShow();
+        
+        height_obj.SetActive(false);
+        rotation_obj.SetActive(false);
         
         // size_text.color = new Color(168f / 255f, 148f / 255f, 252f / 255f);
         // height_text.color = new Color(1f, 1f, 1f);
         // rotation_text.color = new Color(1f, 1f, 1f);
         // GameManager.instance.m_PanelDown.ShowHideMenu();
         
-        height_obj.SetActive(false);
-        size_obj.SetActive(true);
-        rotation_obj.SetActive(false);
+        // height_obj.SetActive(false);
+        // size_obj.SetActive(true);
+        // rotation_obj.SetActive(false);
     }
     
     public void enableRotation()
     {
-        
+        rotation_obj.SetActive(true);
         // rotation_text.color = new Color(168f / 255f, 148f / 255f, 252f / 255f);
         // height_text.color = new Color(1f, 1f, 1f);
         // size_text.color = new Color(1f, 1f, 1f);
@@ -71,12 +82,15 @@ public class TextButtonDeploy : MonoBehaviour
         
         // GameManager.instance.m_PanelDown.ShowHideMenu();
         
-        // height_obj.GetComponent<sliderMenuAnim>().SetShow();
-        // size_obj.GetComponent<sliderMenuAnim>().SetShow();
-        // rotation_obj.GetComponent<sliderMenuAnim>().SetShow();
+        height_obj.GetComponent<sliderMenuAnim>().SetShow();
+        size_obj.GetComponent<sliderMenuAnim>().SetShow();
+        rotation_obj.GetComponent<sliderMenuAnim>().SetShow();
         
         height_obj.SetActive(false);
         size_obj.SetActive(false);
-        rotation_obj.SetActive(true);
+        
+        // height_obj.SetActive(false);
+        // size_obj.SetActive(false);
+        // rotation_obj.SetActive(true);
     }
 }
