@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TopLeftExitButton : MonoBehaviour
+public class BackToAboutBtn : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject backCanvas;
-    
     void Start()
     {
         
@@ -19,11 +17,9 @@ public class TopLeftExitButton : MonoBehaviour
         
     }
     
-    public void TopLeftExitButtonBehaviour()
+    public void BackToAboutBtnBehaviour()
     {
-        // Application.Quit();
-        backCanvas.SetActive(true);
+        // Debug.LogWarning("Back to about button clicked");
+        SceneManager.LoadScene(5);
     }
-    
-    
 }
