@@ -25,5 +25,6 @@ public class DeployPlaceBtn : MonoBehaviour
     public void DisablePlaceholder()
     {
         m_placeholder.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }

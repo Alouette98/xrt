@@ -21,8 +21,20 @@ public class sliderMenuAnim : MonoBehaviour
     {
         main_cam.position = Vector3.Lerp(main_cam.position, ideal_Pos, Time.deltaTime*2);
     }
-    
 
+// getter and setter
+    public bool GetShow()
+    {
+        Animator anim = panelMenu.GetComponent<Animator>();
+        return anim.GetBool("show");
+    }
+
+    public void SetShow()
+    {
+        Animator anim = panelMenu.GetComponent<Animator>();
+        anim.SetBool("show", !GetShow());
+    }
+    
     
     public void ShowHideMenu()
     {
