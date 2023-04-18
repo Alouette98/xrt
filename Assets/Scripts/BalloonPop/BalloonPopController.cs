@@ -635,7 +635,7 @@ namespace Google.CreativeLab.BalloonPop
             if (newAnchor != null || Application.isEditor)
             {
                 BalloonAnchor newBA = CreateNewBalloonAnchor(newAnchor, newBDat);
-                newBA.balloon.PerformInflate();
+                // newBA.balloon.PerformInflate();
 
                 _network.CreateBalloon(newBDat,
                 (BalloonData bDat) => {

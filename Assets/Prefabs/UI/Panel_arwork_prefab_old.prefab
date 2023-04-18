@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8492548292382157959}
   m_Layer: 5
-  m_Name: Panel_arwork_prefab
+  m_Name: Panel_arwork_prefab_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

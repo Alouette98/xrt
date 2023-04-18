@@ -6,6 +6,7 @@ using UnityEngine.XR;
 public class sliderMenuAnim : MonoBehaviour
 {
     // public bool OnAndOffState;
+    public UIController m_UIController;
 
     public GameObject panelMenu;
     public Transform main_cam;
@@ -16,7 +17,7 @@ public class sliderMenuAnim : MonoBehaviour
     // public GameObject btn1;
     // public GameObject btn2;
     // public GameObject btn3;
-    public GameObject overlayerbtn;
+    // public GameObject overlayerbtn;
     
     public void Start()
     {
@@ -58,10 +59,10 @@ public class sliderMenuAnim : MonoBehaviour
                     // ================= The panel is closed. now we make it open. ===========
                     
                     GameManager.instance.m_placementButton.SetActive(false);
-                    gameObject.GetComponent<UIController>().AssignNewTarget(GameManager.instance.m_currentSelectedGO);
+                    m_UIController.AssignNewTarget(GameManager.instance.m_currentSelectedGO);
                     GameManager.instance.b_isEditing = true;
                     
-                    overlayerbtn.SetActive(false);
+                    // overlayerbtn.SetActive(false);
                     
                     // btn1.SetActive(true);
                     // btn2.SetActive(true);
@@ -74,8 +75,8 @@ public class sliderMenuAnim : MonoBehaviour
                 // ============== The panel is opend. now we make it close ========
                 GameManager.instance.LogText("```close```");
 
-                gameObject.GetComponent<UIController>().UploadLatestParamData();
-                gameObject.GetComponent<UIController>().UnAssignCurrTarget();
+                m_UIController.UploadLatestParamData();
+                m_UIController.UnAssignCurrTarget();
                 GameManager.instance.m_currentSelectedGO = null;
                 
                 GameManager.instance.b_isEditing = false;
@@ -84,7 +85,7 @@ public class sliderMenuAnim : MonoBehaviour
                 // btn1.SetActive(false);
                 // btn2.SetActive(false);
                 // btn3.SetActive(false);
-                overlayerbtn.SetActive(true);
+                // overlayerbtn.SetActive(true);
                 
                 
                 ideal_Pos = init_Pos;
