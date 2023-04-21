@@ -43,8 +43,8 @@ public class UploadFile : MonoBehaviour
 
     public void OnButtonClick()
     {
-        //StartCoroutine(ShowLoadDialogCoroutine()); //simpleFileBrower way
-        PickFileName();
+        StartCoroutine(ShowLoadDialogCoroutine()); //simpleFileBrower way
+        //PickFileName();
 
     }
 
@@ -62,6 +62,9 @@ public class UploadFile : MonoBehaviour
             {
                 string fileName = ProcessFileName(Path.GetFileName(path));
                 Debug.Log("read file " + fileName);
+
+
+
                 FinishUploading(fileName);
             }
         }, new string[] { FileType });
@@ -88,17 +91,14 @@ public class UploadFile : MonoBehaviour
             Debug.Log("this is "+ fileName);
 
 
-
-
-
-            /*
+            
             //Editing Metadata
             var newMetadata = new MetadataChange();
             //we need a parser to defien "image/jpg"
-            newMetadata.ContentType = "model/fbx";
+            newMetadata.ContentType = "image/jpg";
 
             //Create a reference to where the file needs to be uploaded
-            StorageReference uploadRef = storageReference.Child("uploads/" + gm.getUserID() + "/" + fileName);
+            StorageReference uploadRef = storageReference.Child("uploads/" + fileName);
             Debug.Log("File upload started");
             
             uploadingcanvas.SetActive(true);    
@@ -111,13 +111,11 @@ public class UploadFile : MonoBehaviour
                 {
                     Debug.Log("File Uploaded Successfully!");
                     uploadingcanvas.SetActive(false);
-                    // Debug.LogWarning(">>>" + uploadRef.GetDownloadUrlAsync().Result);
-                    // Debug.LogWarning(uploadRef.GetDownloadUrlAsync().Result);
                     Debug.LogWarning(">>>>>>>>>>>>>>>" + task.Result.Path);
                     FinishUploading(task.Result.Path);
                 }
             });
-            */
+            
             FinishUploading(fileName);
         }
     }

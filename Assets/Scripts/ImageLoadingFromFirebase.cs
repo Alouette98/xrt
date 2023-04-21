@@ -13,6 +13,7 @@ using SimpleFileBrowser;
 public class ImageLoadingFromFirebase : MonoBehaviour
 {
     public RawImage rawImage;
+    public Texture testTexture;
     FirebaseStorage storage;
     StorageReference storageReference;
 
@@ -62,8 +63,16 @@ public class ImageLoadingFromFirebase : MonoBehaviour
             
             Transform childObjectTransform = inputGameObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase/Cube");
             //childObjectTransform.GetComponent<Renderer>().material = new Material(Shader.Find("Specular"));
-            childObjectTransform.GetComponent<Renderer>().sharedMaterial.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-            childObjectTransform.GetComponent<Renderer>().sharedMaterial.color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+
+            Renderer renderer = childObjectTransform.GetComponent<Renderer>();
+            Material material= renderer.material;
+            Material newMaterial = new Material(material);
+            newMaterial.mainTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
+            float ratio = ((DownloadHandlerTexture)request.downloadHandler).texture.width / ((DownloadHandlerTexture)request.downloadHandler).texture.height;
+            inputGameObject.transform.localScale = new Vector3(inputGameObject.transform.localScale.x, inputGameObject.transform.localScale.y, inputGameObject.transform.localScale.z * ratio);
+            renderer.material = newMaterial;
+            //newMaterial.mainTexture = testTexture;
+            //childObjectTransform.GetComponent<Renderer>().sharedMaterial.color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
             Debug.Log("----Successful----");
 
         }

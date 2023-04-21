@@ -161,8 +161,8 @@ RectTransform:
   m_Father: {fileID: 411430475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.04187192}
-  m_AnchorMax: {x: 1, y: 0.9458128}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2245,7 +2245,7 @@ MonoBehaviour:
   ARCoreExtensions: {fileID: 649267373}
   SessionCore: {fileID: 980572023}
   CameraUnity: {fileID: 60822116}
-  AnchorVisObjectPrefab: {fileID: 1652784530927327765, guid: 8c413bfaded792e46873980cfa017c86,
+  AnchorVisObjectPrefab: {fileID: 8397102589615373678, guid: cf2c9fa459c652b4ba8241abfb62b661,
     type: 3}
   artworks:
   - name: ggmt.jpg
@@ -2275,7 +2275,7 @@ MonoBehaviour:
   - name: cloud.glb
     artwork: {fileID: 1652784530927327765, guid: 8c413bfaded792e46873980cfa017c86,
       type: 3}
-  - name: gunDam.,glb
+  - name: gunDam.glb
     artwork: {fileID: 5225502030359987801, guid: 74bdd270b4e3c7b45a3d8b7975d01d72,
       type: 3}
   testArtwork: {fileID: 8763696257356283678, guid: b45d347893ae7524e978efeb17e24458,
@@ -7631,6 +7631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3a3749d4e53084f8cb413a50362de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UIController: {fileID: 0}
   panelMenu: {fileID: 1679345125}
   main_cam: {fileID: 0}
   init_Pos: {x: 0, y: 0, z: 0}

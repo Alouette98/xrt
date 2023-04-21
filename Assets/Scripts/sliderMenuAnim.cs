@@ -81,13 +81,6 @@ public class sliderMenuAnim : MonoBehaviour
                 
                 GameManager.instance.b_isEditing = false;
                 GameManager.instance.m_placementButton.SetActive(true);
-
-                // btn1.SetActive(false);
-                // btn2.SetActive(false);
-                // btn3.SetActive(false);
-                // overlayerbtn.SetActive(true);
-                
-                
                 ideal_Pos = init_Pos;
                 }   
             }

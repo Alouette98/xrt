@@ -212,7 +212,8 @@ namespace Google.CreativeLab.BalloonPop
             balloonData.slider_X_value = 0f;
             balloonData.slider_Y_value = 0f;
             balloonData.slider_Z_value = 0f;
-            
+            balloonData.slider_Height_value = 0f;
+
             balloonsRef.AddAsync(balloonData).ContinueWith(task => {
                 if (task != null && task.Result != null && task.Result.Id != null)
                 {
@@ -254,7 +255,8 @@ namespace Google.CreativeLab.BalloonPop
                         { "slider_size_value", balloonData.slider_size_value },
                         { "slider_X_value", balloonData.slider_X_value },
                         { "slider_Y_value", balloonData.slider_Y_value },
-                        { "slider_Z_value", balloonData.slider_Z_value }
+                        { "slider_Z_value", balloonData.slider_Z_value },
+                        { "slider_Height_value", balloonData.slider_Height_value }
                     };
                     transaction.Update(balloonRef, updates);
                 });

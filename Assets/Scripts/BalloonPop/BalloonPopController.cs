@@ -610,10 +610,12 @@ namespace Google.CreativeLab.BalloonPop
             newBDat.slider_X_value = 0f;
             newBDat.slider_Y_value = 0f;
             newBDat.slider_Z_value = 0f;
-            
+            newBDat.slider_Height_value = 0f;
+
             if (GameManager.instance.pathTo2DAsset != null)
             {
                 newBDat.filepath = GameManager.instance.pathTo2DAsset;
+                newBDat.balloon_id = GameManager.instance.pathTo2DAsset+"_" +GameManager.instance.getUserID();
             }
             else
             {
@@ -689,6 +691,7 @@ namespace Google.CreativeLab.BalloonPop
             GameObject balloonGO;
             bool finded = false;
             GameObject toBe = AnchorVisObjectPrefab;
+            
             foreach (NamedArtwork atw in artworks)
             {
                 if (atw.name == balloonData.filepath)
@@ -698,9 +701,18 @@ namespace Google.CreativeLab.BalloonPop
                     break;
                 }
             }
+           
             balloonGO = Instantiate(toBe);
-
-
+            
+            if (!finded)
+            {
+                if (balloonData.filepath.Length >= 3 && (balloonData.filepath.Substring(balloonData.filepath.Length - 3).ToLower() == "jpg" || balloonData.filepath.Substring(balloonData.filepath.Length - 3).ToLower() == "png"))
+                {
+                    Debug.Log("new texture founded");
+                    string path = "uploads/" + balloonData.filepath;
+                    GameManager.instance.m_imageLoadingFromFirebase.LoadImageFromName(path, balloonGO);
+                }
+            }
 
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
 
@@ -726,7 +738,7 @@ namespace Google.CreativeLab.BalloonPop
             ArtworkBaseTf.localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
             
             //GameManager.instance.m_imageLoadingFromFirebase.LoadImageFromName(balloonData.filepath, balloonGO);
-            
+
             this._anchors.Add(newBA);
             this.BalloonAnchorCountChanged.Invoke(_anchors.Count);
             
