@@ -1,0 +1,34 @@
+﻿2.1.9
+Changelog:
+-Added PLY loader validation skip.
+-Added AssetViewer debug visualizations.
+-Added material creation tasks to the AssetLoaderContext.Tasks list.
+-Added TriLib error when model can't be loaded.
+-Added gLTF2 Draco support on Android, iOS, Mac, Linux, and WebGL.
+-Added ExtractEmbeddedData Asset Loader Option. Turn off this field to disable embedded resource extraction. When this field is on, embedded textures and resources are extracted to disk and can work as a cache system.
+-Added EmbeddedDataExtractionPath Asset Loader Option. Path to extract embedded resources. This path is set to the "Persistent Data Path" by default.
+-Added BufferizeFiles Asset Loader Option. Change this field to define how TriLib will load files into memory before processing the file (When enabled, decreases loading times, but increases memory usage).
+-Added ConvertMaterialTextures Asset Loader Option. Turn off this field to disable the "Metallic/Smoothness/Specular/Roughness" automatic textures creation.
+-Added ConvertMaterialTexturesUsingHalfRes Asset Loader Option. Convert Material Textures using Half Res", Turn off this field to generate the "Metallic/Smoothness/Specular/Roughness" textures with the full original resolution.
+-Added DisableTesselation Asset Loader Option. Turn on this field to disable the tesselation of polygons with more than three vertices.
+-Added UseCoroutines Asset Loader Option. Turn on this field to use Coroutines on the main thread and minimize stalls.
+-Added ExtractMetallicAndSmoothness to the MaterialMapper class. This property defines if the MaterialMapper needs the "smoothness/roughness" and "metallic" textures on a single texture each.
+-Fixed MaterialMapper assignment bug.
+-Fixed FBX mesh names bug.
+-Fixed FBX version error message.
+-Fixed FBX look at property parsing.
+-Fixed FBX ASCII embedded textures reading.
+-Fixed FlexibleVertexData creation bug.
+-Fixed geometry tesselation issues.
+-Fixed UniversalRP MaterialMapper assignment bug.
+-Fixed sample scenes model references.
+-Textures loaded with the built-in Unity loader are compressed by the time they are loaded now.
+-Disabled the default value of ApplyGammaCurveToMaterialColors as textures were looking "washed out".
+-Removed GCHelper class. Complete GC is made after the model and textures are loaded.
+-Deprecated LoadMaterialsProgressively Asset Loader Option. All TriLib textures are loaded at once after all material properties are loaded.
+-Various performance/memory usage improvements.
+-Misc fixes.
+Version Notes:
+-This TriLib version handles embedded textures differently. To save processing times and memory, embedded data is extracted to the "persistent data path".
+To disable this behavior and use the embedded data as it is, turn off your "AssetLoaderOptions.ExtractEmbeddedData" field.
+You can select another extraction path by changing the "AssetLoaderOptions.EmbeddedDataExtractionPath" field.
