@@ -2295,7 +2295,7 @@ MonoBehaviour:
     artwork: {fileID: 6329510799024226042, guid: 0c806e2d7bfb68f43835cb7b642630c7,
       type: 3}
   - name: testroom.glb
-    artwork: {fileID: 2514926854117376235, guid: 20b392e3fe081ef4494cfebe5fa56f4d,
+    artwork: {fileID: 5041289211795009950, guid: 20b392e3fe081ef4494cfebe5fa56f4d,
       type: 3}
   - name: water.glb
     artwork: {fileID: 3249369105000718614, guid: 01cabd51bfe6fbe43948e0de0e860365,
