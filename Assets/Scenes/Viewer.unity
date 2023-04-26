@@ -161,8 +161,8 @@ RectTransform:
   m_Father: {fileID: 411430475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.04187192}
+  m_AnchorMax: {x: 1, y: 0.9458128}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1905,6 +1905,7 @@ GameObject:
   - component: {fileID: 426515713}
   - component: {fileID: 426515712}
   - component: {fileID: 426515711}
+  - component: {fileID: 426515715}
   m_Layer: 0
   m_Name: Awake
   m_TagString: Untagged
@@ -1968,6 +1969,362 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426515715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426515710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73025ea7219a3d443b3397313cf3d77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: {fileID: 626168843}
+  Description: {fileID: 867481243}
+  descriptions:
+  - filename: A Spot of Red.jpg
+    title: A Spot of Red
+    description: The art piece "A Spot of Red" is a striking composition that draws
+      the viewer's attention to a single, bold red element. Against a neutral background,
+      the red spot stands out as a powerful focal point, evoking a sense of passion,
+      energy, or danger, depending on the viewer's interpretation.
+  - filename: Abstract in 3D.jpg
+    title: Abstract in 3D
+    description: '"Abstract in 3D" is a mesmerizing art piece that combines the principles
+      of abstract art with the depth and texture of 3D design. The piece features
+      a dynamic composition of shapes, colors, and lines that seem to float in space,
+      inviting the viewer to explore the artwork from different angles and perspectives.'
+  - filename: Butterfly.jpg
+    title: Butterfly
+    description: The art piece "Butterfly" is a delicate and graceful representation
+      of the winged insect. The artist has expertly crafted each intricate detail
+      of the butterfly's wings, from the vibrant colors to the fine veins that run
+      through them, creating a stunning and lifelike portrayal of this natural wonder.
+  - filename: Cat in Window.jpeg
+    title: Cat in Window
+    description: The art piece "Cat in Window" is a charming and cozy composition
+      that captures the essence of a lazy feline lounging in a sun-drenched windowsill.
+      Against the backdrop of a rustic brick wall, the cat's silhouette is illuminated
+      by the warm glow of the sun, creating a serene and inviting scene that evokes
+      feelings of relaxation and contentment.
+  - filename: Cat.jpg
+    title: Cat
+    description: The art piece "Cat" is a playful and expressive representation of
+      the beloved household pet. The artist has captured the cat's curious and mischievous
+      nature in its pose and expression, while the bold and vibrant colors give the
+      piece a lively and whimsical feel. This artwork is sure to delight any cat
+      lover and bring a touch of joy and humor to any space.
+  - filename: Change Of Self.png
+    title: Change Of Self
+    description: The art piece "Change of Self" is a thought-provoking exploration
+      of personal growth and transformation. The piece features a dynamic composition
+      of abstract shapes and colors, with each element representing a different aspect
+      of the artist's journey towards self-discovery and change. Through its bold
+      and expressive design, "Change of Self" invites the viewer to reflect on their
+      own path of self-improvement and the transformative power of personal growth.
+  - filename: Color.jpg
+    title: Color
+    description: The art piece "Color" is a vibrant and energetic celebration of
+      the power and beauty of color. The artist has expertly blended a wide spectrum
+      of hues and shades, creating a dynamic and mesmerizing composition that stimulates
+      the senses and evokes a sense of joy and excitement. This artwork is sure to
+      brighten any space and inspire a greater appreciation for the visual arts.
+  - filename: Dot tree.jpg
+    title: Dot tree
+    description: The art piece "Dot Tree" is a minimalist and elegant representation
+      of the natural world. The tree's silhouette is created by a series of carefully
+      placed dots, with the negative space around them forming the branches and leaves.
+      This simplistic and delicate approach creates a sense of tranquility and harmony,
+      inviting the viewer to contemplate the beauty and complexity of nature.
+  - filename: Endless Consumption.jpg
+    title: Endless Consumption
+    description: The art piece "Endless Consumption" is a powerful and thought-provoking
+      commentary on consumerism and its impact on our planet. The piece features
+      a chaotic and overwhelming composition of everyday consumer goods, piled high
+      and overflowing in a never-ending cycle of consumption. Through its striking
+      and impactful design, "Endless Consumption" challenges the viewer to confront
+      their own role in the global issue of overconsumption and consider the social
+      consequences of their actions.
+  - filename: Field.jpg
+    title: Field
+    description: The art piece "Field" is a serene and tranquil representation of
+      the natural world. The piece features a wide expanse of green fields, gently
+      rolling and undulating into the horizon. Through its minimalist and understated
+      design, "Field" invites the viewer to immerse themselves in the peacefulness
+      of the countryside and contemplate the beauty and simplicity of nature.
+  - filename: Floral Horizon.jpeg
+    title: Floral Horizon
+    description: The art piece "Floral Horizon" is a beautiful and serene representation
+      of a lush flower field stretching towards the horizon. The artwork features
+      a harmonious composition of vibrant flowers in various shades of pink, purple,
+      and yellow, creating a sense of tranquility and serenity. The artwork's captivating
+      beauty is sure to bring a touch of nature's calming presence to any space.
+  - filename: Landscape.jpg
+    title: Landscape
+    description: The art piece "Landscape" is a breathtaking and expansive representation
+      of the natural world. The artwork features a vast and dramatic vista, with
+      a sweeping landscape of mountains, forests, and waterways stretching out as
+      far as the eye can see. Through its masterful use of color and texture, "Landscape"
+      invites the viewer to explore the majesty and grandeur of nature and contemplate
+      our place within it.
+  - filename: Lion.jpg
+    title: Lion
+    description: The art piece "Lion" is a powerful and majestic representation of
+      the king of the jungle. The artwork features a striking and detailed portrait
+      of a lion, capturing its strength, courage, and regal presence. Through its
+      dynamic and lifelike design, "Lion" invites the viewer to contemplate the beauty
+      and power of the natural world and the intricate interplay between predator
+      and prey.
+  - filename: Look.jpg
+    title: Look
+    description: The art piece "Look" is a captivating and introspective representation
+      of the human gaze. The artwork features a close-up of an eye, with its intricate
+      details and colors expertly rendered in a realistic and lifelike manner. Through
+      its powerful and engaging design, "Look" invites the viewer to contemplate
+      the depth and complexity of the human experience and consider the many emotions
+      and thoughts that can be conveyed through a single gaze.
+  - filename: National Ocean Sciences Bowl.jpg
+    title: National Ocean Sciences Bowl
+    description: The art piece "National Ocean Sciences Bowl" is a vibrant and dynamic
+      representation of the power and beauty of the ocean. Through its engaging and
+      visually striking design, "National Ocean Sciences Bowl" invites the viewer
+      to consider the importance of ocean conservation and the crucial role that
+      marine ecosystems play in our planet's health and well-being.
+  - filename: Shocked Cat.jpg
+    title: Shocked Cat
+    description: The art piece "Shocked Cat" is a humorous and entertaining representation
+      of a feline caught off guard. The artwork features a comically exaggerated
+      expression on the cat's face, with wide eyes and an open mouth conveying its
+      surprise and shock. Through its playful and lighthearted design, "Shocked Cat"
+      invites the viewer to embrace their sense of humor and appreciate the many
+      delightful and unexpected moments that can be found in everyday life.
+  - filename: Sky.jpg
+    title: Sky
+    description: The art piece "Sky" is a breathtaking and expansive representation
+      of the boundless beauty of the heavens. The artwork features a stunning and
+      vivid portrayal of the sky, with a rich and vibrant palette of colors and textures
+      that capture the majesty and grandeur of the natural world. Through its stunning
+      and awe-inspiring design, "Sky" invites the viewer to contemplate the vastness
+      and wonder of the universe and the endless possibilities that lie beyond our
+      world.
+  - filename: Star Travel.jpg
+    title: Star Travel
+    description: The art piece "Star Travel" is a visionary and adventurous representation
+      of human exploration beyond our planet. Through its compelling and imaginative
+      design, "Star Travel" invites the viewer to dream of a future where humanity
+      has reached beyond the limits of our world and explored the vast and wondrous
+      expanse of the cosmos.
+  - filename: Stare.jpg
+    title: Stare
+    description: The art piece "Stare" is a penetrating and intimate portrayal of
+      the human gaze. The artwork features a striking and evocative depiction of
+      a person's face, with intense and piercing eyes that capture the viewer's attention
+      and hold it with unwavering focus. Through its powerful and arresting design,
+      "Stare" invites the viewer to consider the many layers and complexities of
+      human emotion and perception, and to reflect on the power and meaning of the
+      gaze in our daily lives.
+  - filename: Street in Memory.jpg
+    title: Street in Memory
+    description: The art piece "Street in Memory" is a nostalgic and contemplative
+      representation of the passage of time. Through its thoughtful and introspective
+      design, "Street in Memory" invites the viewer to reflect on their own experiences
+      of loss and change, and to consider the ways in which the places we inhabit
+      become intertwined with our own personal histories and identities.
+  - filename: The Color Purple.jpeg
+    title: The Color Purple
+    description: The art piece "The Color Purple" is a vibrant and expressive celebration
+      of color and emotion. The artwork features a bold and dynamic array of shades
+      of purple, with sweeping lines and curves that evoke a sense of movement and
+      energy. Through its captivating and lively design, "The Color Purple" invites
+      the viewer to revel in the joy and beauty of color, and to appreciate the many
+      ways in which it can enrich and enliven our lives.
+  - filename: Two Birds.jpeg
+    title: Two Birds
+    description: The art piece "Two Birds" is a charming and whimsical portrayal
+      of avian life. The artwork features a delightful and intricate depiction of
+      two birds perched on a branch, with richly detailed feathers and expressive
+      expressions that convey a sense of playfulness and curiosity. Through its charming
+      and lighthearted design, "Two Birds" invites the viewer to appreciate the wonder
+      and beauty of the natural world, and to find joy in the simple pleasures of
+      observation and contemplation.
+  - filename: Wolverine.jpeg
+    title: Wolverine
+    description: The art piece "Wolverine" is a fierce and intense representation
+      of this iconic character. The artwork features a striking and dynamic depiction
+      of Wolverine, with razor-sharp claws and a menacing expression that conveys
+      a sense of power and ferocity. Through its bold and energetic design, "Wolverine"
+      invites the viewer to immerse themselves in the world of this beloved superhero
+      and to experience the thrill of his adventures firsthand.
+  - filename: facebook photo border.png
+    title: facebook photo border
+    description: 'This art piece is a mixed-media work that explores the role of
+      social media and technology in shaping our perceptions of the world around
+      us. '
+  - filename: Glendon Sketch.png
+    title: Glendon Sketch
+    description: This art piece is a self-portrait sketch created by Glendon, capturing
+      his own likeness through the use of line and form. The sketch is composed of
+      fluid, gestural lines that suggest movement and vitality, while also conveying
+      a sense of introspection and contemplation.
+  - filename: IN FRANCE WITH MADONNA 01.png
+    title: IN FRANCE WITH MADONNA 01
+    description: "\"To celebrate the 40th anniversary of the Queen of Pop\u2019s
+      career, this film revisits the close and singular bond that unites Madonna
+      and France and brings together close french collaborators and friends who have
+      helped create her unique artistic universe.\""
+  - filename: IN FRANCE WITH MADONNA 02.png
+    title: IN FRANCE WITH MADONNA 02
+    description: "\"To celebrate the 40th anniversary of the Queen of Pop\u2019s
+      career, this film revisits the close and singular bond that unites Madonna
+      and France and brings together close french collaborators and friends who have
+      helped create her unique artistic universe.\""
+  - filename: IN FRANCE WITH MADONNA 03.png
+    title: IN FRANCE WITH MADONNA 03
+    description: "\"To celebrate the 40th anniversary of the Queen of Pop\u2019s
+      career, this film revisits the close and singular bond that unites Madonna
+      and France and brings together close french collaborators and friends who have
+      helped create her unique artistic universe.\""
+  - filename: IN FRANCE WITH MADONNA 04.png
+    title: IN FRANCE WITH MADONNA 04
+    description: "\"To celebrate the 40th anniversary of the Queen of Pop\u2019s
+      career, this film revisits the close and singular bond that unites Madonna
+      and France and brings together close french collaborators and friends who have
+      helped create her unique artistic universe.\""
+  - filename: Ishara Henry_01_Stay quiet.jpg
+    title: Ishara Henry_01_Stay quiet
+    description: This series of blue-themed selfie artworks explores the many shades
+      and meanings of the color blue.
+  - filename: Ishara Henry_02_Stay quiet.jpg
+    title: Ishara Henry_02_Stay quiet
+    description: This series of blue-themed selfie artworks explores the many shades
+      and meanings of the color blue.
+  - filename: Ishara Henry_03_Stay quiet.jpg
+    title: Ishara Henry_03_Stay quiet
+    description: This series of blue-themed selfie artworks explores the many shades
+      and meanings of the color blue.
+  - filename: Ishara Henry_04_Stay quiet.jpg
+    title: Ishara Henry_04_Stay quiet
+    description: This series of blue-themed selfie artworks explores the many shades
+      and meanings of the color blue.
+  - filename: john zobele untitled-tobe-field flag-2015.png
+    title: john zobele untitled-tobe-field flag-2015
+    description: This art piece is a testament to John Zobele's skill as a mixed-media
+      artist, and to his ability to combine disparate elements into a cohesive and
+      thought-provoking whole.
+  - filename: Pink tape.png
+    title: Pink tape
+    description: This art piece is an exploration of the color pink and its potential
+      to convey emotions and ideas beyond its stereotypical associations with femininity
+      and softness.
+  - filename: Raine_1.jpg
+    title: Raine_1
+    description: This series of art pieces celebrates the beauty of larger bodies
+      through the depiction of naked figures with fuller figures.
+  - filename: Raine_2.jpg
+    title: Raine_2
+    description: This series of art pieces celebrates the beauty of larger bodies
+      through the depiction of naked figures with fuller figures.
+  - filename: Raine_3.jpg
+    title: Raine_3
+    description: This series of art pieces celebrates the beauty of larger bodies
+      through the depiction of naked figures with fuller figures.
+  - filename: Raine_4.jpg
+    title: Raine_4
+    description: This series of art pieces celebrates the beauty of larger bodies
+      through the depiction of naked figures with fuller figures.
+  - filename: Still Life (iPad 1st Gen with Fruit and Inhaler), 2015 still.jpg
+    title: Still Life
+    description: This series of art pieces explores the timeless theme of still life,
+      capturing the beauty and complexity of everyday objects through a range of
+      different mediums and techniques.
+  - filename: Still Life 02.jpg
+    title: Still Life 02
+    description: This series of art pieces explores the timeless theme of still life,
+      capturing the beauty and complexity of everyday objects through a range of
+      different mediums and techniques.
+  - filename: twoSidesBlue11x14.png
+    title: twoSidesBlue
+    description: This series of blue-themed selfie artworks explores the many shades
+      and meanings of the color blue.
+  - filename: Zuishengmengsi.png
+    title: Zuishengmengsi
+    description: The use of vibrant colors and bold brushstrokes adds to the sense
+      of energy and emotion in the piece, while also conveying a sense of instability
+      and unpredictability.
+  - filename: bird_2.glb
+    title: Bird
+    description: 'This standing bird 3D art piece captures the essence of avian grace
+      and beauty. The bird is depicted with its wings slightly spread, as if about
+      to take flight. Its feathers are intricately detailed, with every strand and
+      texture expertly crafted to give the bird a lifelike appearance. The bird''s
+      beak and talons are sharp and well-defined, adding a sense of danger and power
+      to the piece. '
+  - filename: people.glb
+    title: People
+    description: 'This group of people art piece is a stunning representation of
+      human connection and community. The group is depicted in a naturalistic pose,
+      with each individual''s body language and facial expression conveying a sense
+      of warmth and camaraderie. The artist has expertly crafted each person''s unique
+      features, from their hair and clothing to their body type and facial features. '
+  - filename: huge.glb
+    title: Max
+    description: 'This Max 3D art piece is a stunning representation of the human
+      form. The figure is depicted in a naturalistic pose, with a strong, athletic
+      build and a relaxed posture. The artist has expertly crafted the detail and
+      texture of the figure''s body, with muscular definition and realistic proportions.
+      The surrounding background is blurred, adding to the sense of focus on the
+      figure itself. '
+  - filename: explosion.glb
+    title: Explosion
+    description: The art piece "Explosion" is a dynamic and explosive representation
+      of an intense burst of energy. The artwork features a vibrant and chaotic depiction
+      of an explosion, with swirling lines and vivid colors that convey a sense of
+      movement and impact. Through its bold and dramatic design, "Explosion" invites
+      the viewer to experience the sheer force and energy of this powerful event,
+      and to appreciate the sheer beauty that can arise from destruction and chaos.
+  - filename: testroom.glb
+    title: Room
+    description: The room itself is the artwork. Welcome to the room!
+  - filename: face.glb
+    title: Face
+    description: Face
+  - filename: girl_sit.glb
+    title: Peaceful Girl
+    description: 'This peaceful sitting girl art piece exudes a sense of tranquility
+      and calm. The girl is depicted sitting cross-legged, with her hands resting
+      gently on her knees. Her posture is relaxed, with her back straight and her
+      face serene. The artist has chosen a warm color palette, with soft hues of
+      pink and orange that lend the piece a cozy, inviting feel. The girl''s clothing
+      is simple but detailed, with folds and textures that add depth and dimension
+      to the piece. '
+  - filename: creeper.glb
+    title: Minecraft Creeper
+    description: 'This Minecraft creeper 3D art piece is a stunning recreation of
+      one of the game''s most iconic enemies. The creeper is depicted in all its
+      green glory, with its signature hissing face and blocky body. The artist has
+      expertly crafted each pixelated detail, from the creeper''s four block high
+      stature to its textured skin and pixelated legs. The creeper''s infamous ability
+      to explode is hinted at through its tense posture and the explosive particles
+      that surround it. '
+  - filename: water.glb
+    title: Liquid
+    description: 'This liquid 3D art piece is a stunning representation of the fluidity
+      and movement of liquid. The liquid is depicted in its signature state, with
+      droplets and waves that give it a lifelike appearance. The artist has expertly
+      crafted the texture and color of the liquid, with its shimmering surface and
+      vibrant hues. The surrounding environment is blurred, adding to the sense of
+      focus on the liquid itself. '
+  - filename: saintJoan.glb
+    title: Saint Joan
+    description: The art piece "Saint Joan" is a striking and powerful representation
+      of this legendary historical figure. The artwork features a commanding and
+      resolute depiction of Joan of Arc, with a determined expression and a fierce
+      gaze that convey a sense of strength and conviction. Through its bold and confident
+      design, "Saint Joan" invites the viewer to contemplate the heroic spirit of
+      this remarkable woman, and to reflect on the enduring impact of her legacy
+      on history and culture.
 --- !u!1 &447913779
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,7 +3358,7 @@ GameObject:
   - component: {fileID: 626168843}
   - component: {fileID: 626168842}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3099,7 +3456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title, Time
+  m_text: Title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6b5a1fe9d0c328f4090a471563f87a1a, type: 2}
   m_sharedMaterial: {fileID: -3625093261566785480, guid: 6b5a1fe9d0c328f4090a471563f87a1a,
@@ -4017,7 +4374,7 @@ GameObject:
   - component: {fileID: 867481243}
   - component: {fileID: 867481242}
   m_Layer: 5
-  m_Name: Text (TMP) (5)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4039,7 +4396,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364, y: 105}
+  m_AnchoredPosition: {x: -364, y: 198}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867481242
@@ -4948,7 +5305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1111617268
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5595,7 +5952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1325590803
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6601,6 +6958,7 @@ MonoBehaviour:
   pathTo2DAsset: 
   m_imageLoadingFromFirebase: {fileID: 0}
   sceneName: 
+  m_infoLoader: {fileID: 0}
 --- !u!4 &1456396480
 Transform:
   m_ObjectHideFlags: 0

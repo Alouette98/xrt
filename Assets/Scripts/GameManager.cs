@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
 
     public string sceneName;
     
+    public InfoLoader m_infoLoader;
+
     public string getUserID()
     {
         return UserID;
