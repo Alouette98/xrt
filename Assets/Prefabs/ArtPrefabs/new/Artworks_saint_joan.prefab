@@ -324,7 +324,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9101244604502824742, guid: 154c3321a91ad8d42888c57127e47e2a, type: 3}
+  - {fileID: 2100000, guid: 404bd6c685bbbe04592ddc0f0f887d67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -712,7 +712,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2949913343374800900, guid: 154c3321a91ad8d42888c57127e47e2a, type: 3}
+  - {fileID: 2100000, guid: 5d353727e83eaa1478bad8d8f34f3f90, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2275,7 +2275,7 @@ Transform:
   m_GameObject: {fileID: 5289016088788465219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: -0.00167}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children:
   - {fileID: 4596787139696756172}
   m_Father: {fileID: 7799369028629148491}
@@ -2518,8 +2518,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.76
-  m_Center: {x: 0, y: 5.55, z: 0}
+  m_Radius: 2.46
+  m_Center: {x: 0, y: 3.13, z: 0}
 --- !u!135 &5978425339598378501
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8603,7 +8603,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1305523306936566582, guid: 154c3321a91ad8d42888c57127e47e2a, type: 3}
+  - {fileID: 2100000, guid: e8d79d44b0f2e014b80bca48c7a48042, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
