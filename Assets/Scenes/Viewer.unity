@@ -161,8 +161,8 @@ RectTransform:
   m_Father: {fileID: 411430475}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.04187192}
-  m_AnchorMax: {x: 1, y: 0.9458128}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2325,6 +2325,9 @@ MonoBehaviour:
       design, "Saint Joan" invites the viewer to contemplate the heroic spirit of
       this remarkable woman, and to reflect on the enduring impact of her legacy
       on history and culture.
+  - filename: grass.glb
+    title: Grass
+    description: Grass
 --- !u!1 &447913779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,7 +2669,9 @@ MonoBehaviour:
   - name: people.glb
     artwork: {fileID: 6124299973164281352, guid: bcfb1844e1f41214c9008e70025a2785,
       type: 3}
-  testArtwork: {fileID: 8763696257356283678, guid: b45d347893ae7524e978efeb17e24458,
+  - name: grass.glb
+    artwork: {fileID: 57483425029580430, guid: 53bb9c2db307fbe4a834a33012accab1, type: 3}
+  testArtwork: {fileID: 57483425029580430, guid: 53bb9c2db307fbe4a834a33012accab1,
     type: 3}
   BalloonAnchorCountChanged:
     m_PersistentCalls:

@@ -3805,9 +3805,8 @@ MonoBehaviour:
   - name: face.glb
     artwork: {fileID: 7884135879916116972, guid: 143cb53642d30074c8d8f11a2609ddba,
       type: 3}
-  - name: gunDam.glb
-    artwork: {fileID: 5225502030359987801, guid: 74bdd270b4e3c7b45a3d8b7975d01d72,
-      type: 3}
+  - name: grass.glb
+    artwork: {fileID: 57483425029580430, guid: 53bb9c2db307fbe4a834a33012accab1, type: 3}
   - name: explosion.glb
     artwork: {fileID: 6146883329478473023, guid: c8dba81c131f08049b1eb6b828bd075c,
       type: 3}
@@ -10932,6 +10931,7 @@ MonoBehaviour:
   pathTo2DAsset: 
   m_imageLoadingFromFirebase: {fileID: 0}
   sceneName: 
+  m_infoLoader: {fileID: 0}
 --- !u!4 &1456396480
 Transform:
   m_ObjectHideFlags: 0
