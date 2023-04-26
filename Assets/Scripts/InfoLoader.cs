@@ -11,10 +11,12 @@ public class InfoLoader : MonoBehaviour
 
     public TMPro.TMP_Text Title;
     public TMPro.TMP_Text Description;
+    public TMPro.TMP_Text debugMessage;
     
     void Start()
     {
         GameManager.instance.m_infoLoader = this;
+        GameManager.instance.sceneName = "view";
     }
 
     [Serializable]
@@ -31,9 +33,11 @@ public class InfoLoader : MonoBehaviour
 
     public void LoadDescription(string givenName)
     {
+        debugMessage.text = givenName;
         foreach (DescriptionArtwork work in descriptions)
         {
-            if (givenName == work.filename)
+            
+            if (work.filename == givenName)
             {
                 // Debug.Log("Found description for " + givenName);
                 
