@@ -34,6 +34,7 @@ public class InfoLoader : MonoBehaviour
     public void LoadDescription(string givenName)
     {
         debugMessage.text = givenName;
+
         foreach (DescriptionArtwork work in descriptions)
         {
             
@@ -52,6 +53,7 @@ public class InfoLoader : MonoBehaviour
         
         Title.text = "Untitled";
         Description.text = "No description available";
+
 
     }
     

@@ -311,8 +311,9 @@ namespace Google.CreativeLab.BalloonPop
                         }
                         else if (GameManager.instance.sceneName == "view")
                         {
+                            GameManager.instance.m_infoLoader.LoadDescription(Data.filepath);
                             GameManager.instance.m_PanelDown.ShowHideMenu();
-                            GameManager.instance.m_infoLoader.LoadDescription(this.gameObject.GetComponentInChildren<Balloon>().Data.filepath);
+                            
                         }
 
 
