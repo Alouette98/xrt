@@ -9,17 +9,26 @@ EditorBuildSettings:
     path: Assets/Scenes/LoginScene.unity
     guid: d3c095d7e7b30644c925998a0b5842a5
   - enabled: 1
-    path: Assets/Scenes/AssetViewScene.unity
+    path: Assets/Scenes/UploadScene.unity
     guid: e8eacc1bd5677cb45bf04751aa9628aa
   - enabled: 1
     path: Assets/Scenes/EditScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
     path: Assets/Scenes/BalloonPopAR.unity
-    guid: e5ca3b0897605894ba3486a37a32d6cb
+    guid: de027af7c4bc9c641bce2aae84471f55
   - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: f9663af91a6050042bef2f8eaa962156
+  - enabled: 1
+    path: Assets/Scenes/About.unity
+    guid: 9248e877b45a20446b7493aa0696e319
+  - enabled: 0
+    path: Assets/Scenes/ViewerSide.unity
+    guid: e5ca3b0897605894ba3486a37a32d6cb
+  - enabled: 1
+    path: Assets/Scenes/Viewer.unity
+    guid: 28f9c1bee0eee5249a83bd78dbcc9d63
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 9589c372becd448928f470b43d0b945b,
       type: 2}

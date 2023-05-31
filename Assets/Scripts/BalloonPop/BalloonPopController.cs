@@ -92,6 +92,16 @@ namespace Google.CreativeLab.BalloonPop
         /// </summary>
         public GameObject AnchorVisObjectPrefab;
 
+
+        [Serializable]
+        public struct NamedArtwork
+        {
+            public string name;
+            public GameObject artwork;
+        }
+        public NamedArtwork[] artworks;
+
+        public GameObject testArtwork;
         /// <summary>
         /// The last created anchors.
         /// </summary>
@@ -583,7 +593,8 @@ namespace Google.CreativeLab.BalloonPop
             distAheadOfCamera = geoCoord.GetDistanceTo(geoCoordAhead);
 
             BalloonData newBDat = new BalloonData();
-            newBDat.user_id = _network.CurrentUserID;
+            //newBDat.user_id = _network.CurrentUserID;
+            newBDat.user_id = GameManager.instance.getUserID();
             newBDat.latitude = geoCoordAhead.latitude;
             newBDat.longitude = geoCoordAhead.longitude;
             newBDat.altitude = geoPose.Altitude - Balloon.ESTIMATED_CAM_HEIGHT_FROM_FLOOR;
@@ -599,7 +610,17 @@ namespace Google.CreativeLab.BalloonPop
             newBDat.slider_X_value = 0f;
             newBDat.slider_Y_value = 0f;
             newBDat.slider_Z_value = 0f;
-            
+            newBDat.slider_Height_value = 0f;
+
+            if (GameManager.instance.pathTo2DAsset != null)
+            {
+                newBDat.filepath = GameManager.instance.pathTo2DAsset;
+                newBDat.balloon_id = GameManager.instance.pathTo2DAsset+"_" +GameManager.instance.getUserID();
+            }
+            else
+            {
+                newBDat.filepath = null;
+            }
             
 
             Quaternion anchorRot = Quaternion.AngleAxis(0, new Vector3(0.0f, 1.0f, 0.0f));
@@ -616,7 +637,7 @@ namespace Google.CreativeLab.BalloonPop
             if (newAnchor != null || Application.isEditor)
             {
                 BalloonAnchor newBA = CreateNewBalloonAnchor(newAnchor, newBDat);
-                newBA.balloon.PerformInflate();
+                // newBA.balloon.PerformInflate();
 
                 _network.CreateBalloon(newBDat,
                 (BalloonData bDat) => {
@@ -666,10 +687,35 @@ namespace Google.CreativeLab.BalloonPop
         /// <param name="balloonData">The BalloonData to use for the new BalloonAnchor</param>
         private BalloonAnchor CreateNewBalloonAnchor(ARGeospatialAnchor arAnchor, BalloonData balloonData)
         {
-
-            GameObject balloonGO = Instantiate(AnchorVisObjectPrefab);
+            Debug.LogWarning("----------------Reached CreateNewBalloonAnchor-----------------");
+            GameObject balloonGO;
+            bool finded = false;
+            GameObject toBe = AnchorVisObjectPrefab;
             
+            foreach (NamedArtwork atw in artworks)
+            {
+                if (atw.name == balloonData.filepath)
+                {
+                    toBe = atw.artwork;
+                    finded = true;
+                    break;
+                }
+            }
+           
+            balloonGO = Instantiate(toBe);
+            
+            if (!finded)
+            {
+                if (balloonData.filepath.Length >= 3 && (balloonData.filepath.Substring(balloonData.filepath.Length - 3).ToLower() == "jpg" || balloonData.filepath.Substring(balloonData.filepath.Length - 3).ToLower() == "png"))
+                {
+                    Debug.Log("new texture founded");
+                    string path = "uploads/" + balloonData.filepath;
+                    GameManager.instance.m_imageLoadingFromFirebase.LoadImageFromName(path, balloonGO);
+                }
+            }
+
             Balloon balloon = balloonGO.GetComponentInChildren<Balloon>();
+
             balloon.balloonWasPopped.AddListener(this.BalloonWasPopped);
             balloon.SetBalloonData(balloonData);
             
@@ -686,18 +732,21 @@ namespace Google.CreativeLab.BalloonPop
             
             GameObject Artworkbase = balloonGO.transform.Find("RotationWrapper/Balloon/ArtWorkBase").gameObject;
             Transform ArtworkBaseTf = Artworkbase.transform;
-
+            
             ArtworkBaseTf.localRotation =
                 Quaternion.Euler(balloonData.rotationX, balloonData.rotationY, balloonData.rotationZ);
             ArtworkBaseTf.localScale = new Vector3(balloonData.scale, balloonData.scale, balloonData.scale);
             
+            //GameManager.instance.m_imageLoadingFromFirebase.LoadImageFromName(balloonData.filepath, balloonGO);
+
             this._anchors.Add(newBA);
             this.BalloonAnchorCountChanged.Invoke(_anchors.Count);
-
+            
             balloon.SetVisibleAfterDelay(true, 0.3f);
 
             return newBA;
         }
+        
 
         /// <summary>
         /// Update the height of the balloon anchors so they are 

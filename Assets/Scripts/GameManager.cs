@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Google.CreativeLab.BalloonPop;
 using UnityEngine;
@@ -21,6 +22,14 @@ public class GameManager : MonoBehaviour
     public GameObject m_placementButton; 
 
     public BalloonPopController m_ballonPopController;
+
+    public String pathTo2DAsset;
+
+    public ImageLoadingFromFirebase m_imageLoadingFromFirebase;
+
+    public string sceneName;
+    
+    public InfoLoader m_infoLoader;
 
     public string getUserID()
     {

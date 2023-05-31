@@ -55,7 +55,7 @@ namespace Google.CreativeLab.BalloonPop
         void Awake() {
             if (Shared != null && Shared != this) 
             { 
-                Destroy(this); 
+                DestroyImmediate(this); 
             } 
             else 
             { 

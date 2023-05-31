@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     [SerializeField] public Slider slider_Z;
     [SerializeField] public Transform editing_prefab;
     [SerializeField] public Camera main_cam;
+    [SerializeField] public Slider slider_Height;
 
     private Vector3 ini_Scale;
     private Quaternion ini_rotation;
@@ -30,13 +31,18 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.b_isEditing)
+        if (GameManager.instance != null)
         {
-            float size_value = Mathf.Pow(5, slider_size.value);
-            editing_prefab.localScale = ini_Scale * size_value;
-            Vector3 eulerRotation = new Vector3(slider_X.value, slider_Y.value, slider_Z.value) * 180;
-            editing_prefab.localRotation = ini_rotation * Quaternion.Euler(eulerRotation);
+            if (GameManager.instance.b_isEditing)
+            {
+                float size_value = Mathf.Pow(5, slider_size.value);
+                editing_prefab.localScale = ini_Scale * size_value;
+                Vector3 eulerRotation = new Vector3(slider_X.value, slider_Y.value, slider_Z.value) * 180;
+                editing_prefab.localRotation = ini_rotation * Quaternion.Euler(eulerRotation);
+                editing_prefab.localPosition = new Vector3(editing_prefab.localPosition.x, slider_Height.value, editing_prefab.localPosition.z);
+            }
         }
+        
     }
     public void AssignNewTarget(GameObject inputGameObject)
     {
@@ -51,7 +57,7 @@ public class UIController : MonoBehaviour
         this.slider_X.value = inputGameObject.GetComponentInChildren<Balloon>().Data.slider_X_value;
         this.slider_Y.value = inputGameObject.GetComponentInChildren<Balloon>().Data.slider_Y_value;
         this.slider_Z.value = inputGameObject.GetComponentInChildren<Balloon>().Data.slider_Z_value;
-        
+        this.slider_Height.value = inputGameObject.GetComponentInChildren<Balloon>().Data.slider_Height_value;
         this.editing_prefab = inputGameObject.transform.Find("ArtWorkBase");
         
         // this.editing_prefab.localScale = new Vector3(inputGameObject.GetComponentInChildren<Balloon>().Data.scale,
@@ -87,7 +93,7 @@ public class UIController : MonoBehaviour
         newBalloonData.slider_X_value = slider_X.value;
         newBalloonData.slider_Y_value = slider_Y.value;
         newBalloonData.slider_Z_value = slider_Z.value;
-
+        newBalloonData.slider_Height_value = slider_Height.value;
         GameManager.instance.m_ballonPopController._network.UpdateNewParamOnFirestore(
             newBalloonData,
             (BalloonData bDat) => {

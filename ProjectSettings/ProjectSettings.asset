@@ -130,9 +130,11 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 1
   preloadedAssets:
+  - {fileID: -6321847896954157231, guid: 4cd4b3c7fee2841f19a4baf714f95064, type: 2}
   - {fileID: 11400000, guid: 972224512014741eab97292f03b31c01, type: 2}
+  - {fileID: 4800000, guid: c9f956787b1d945e7b36e0516201fc76, type: 3}
   - {fileID: 11400000, guid: 3ba26d662cdb741999351a6e0ff8a6ce, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -190,7 +192,7 @@ PlayerSettings:
   iPhoneStrippingLevel: 0
   iPhoneScriptCallOptimization: 0
   ForceInternetPermission: 0
-  ForceSDCardPermission: 0
+  ForceSDCardPermission: 1
   CreateWallpaper: 0
   APKExpansionFiles: 0
   keepLoadedShadersAlive: 0
@@ -281,7 +283,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+      m_Icon: {fileID: 2800000, guid: 6cc1450abfce7fa449f7a471e43e0854, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -833,7 +835,7 @@ PlayerSettings:
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
-  allowUnsafeCode: 0
+  allowUnsafeCode: 1
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 0

@@ -18,6 +18,7 @@ namespace TriLibCore.Samples
         GameObject objectAsset;
         FirebaseStorage storage;
         StorageReference storageReference;
+        public GameObject prefabGameObject;
 
 
         IEnumerator LoadImage(string MediaUrl)
@@ -54,8 +55,7 @@ namespace TriLibCore.Samples
             }
 
         }
-
-
+        
         void Start()
         {
             rawImage = gameObject.GetComponent<RawImage>();
@@ -72,7 +72,8 @@ namespace TriLibCore.Samples
             {
                 if (!task.IsFaulted && !task.IsCanceled)
                 {
-                    //Debug.Log(Convert.ToString(task.Result));
+                    
+                    Debug.Log(Convert.ToString(">>>>>>>>>>>" + task.Result));
                     StartCoroutine(LoadImage(Convert.ToString(task.Result)));
                     ;
                 }
@@ -82,6 +83,11 @@ namespace TriLibCore.Samples
                 }
 
             });
+            
+            
+            // ------  Downloading fbx file from firebase storage  ------
+            
+            // storageReference obj2 = storageReference.
 
             StorageReference obj = storageReference.Child("uploads/test.fbx");
 
@@ -101,7 +107,19 @@ namespace TriLibCore.Samples
             });
 
             var assetLoaderOptions = AssetLoader.CreateDefaultLoaderOptions();
-            AssetLoader.LoadModelFromFile("download_asset.fbx", OnLoad, OnMaterialsLoad, OnProgress, OnError, null, assetLoaderOptions);
+
+            GameObject parentObject = Instantiate(prefabGameObject);
+            Transform childObjectTransform = parentObject.transform.Find("RotationWrapper/Balloon/ArtWorkBase");
+            if (childObjectTransform == null)
+            {
+                Debug.LogError("Child object not found");
+            }
+            else
+            {
+                Debug.Log("Child object found successfully");
+            }
+            
+            AssetLoader.LoadModelFromFile("download_asset.fbx", OnLoad, OnMaterialsLoad, OnProgress, OnError, childObjectTransform.gameObject , assetLoaderOptions);
 
         }
 

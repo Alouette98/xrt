@@ -23,7 +23,17 @@ public class UserIDUpdate : MonoBehaviour
     {
         // Debug.Log("[Info] Home scene loaded.");
         GameManager gm = FindObjectOfType<GameManager>();
-        UserIDText.text = "Login user ID: " + gm.getUserID();
+        
+        if (gm != null)
+        {
+            UserIDText.text = "Login user ID: " + gm.getUserID();
+        }
+        else
+        {
+            UserIDText.text = "111";
+        }
+        
+       
     }
     
 }
